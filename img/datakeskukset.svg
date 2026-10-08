@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 124 124" width="124" height="124" fill="none" stroke-width="3" stroke-linecap="square" stroke-linejoin="miter">
+  <!-- KSBR toimialaikoni: Datakeskukset. Musta runko, sininen korostus (#4AABC2) kuten muissa toimialaikoneissa. -->
+  <!-- palvelinyksiköt -->
+  <path stroke="#4AABC2" d="M33 38H55M33 50H55M33 62H55M33 74H55M75 58H91M75 70H91"/>
+  <g stroke="#000">
+    <!-- räkkikaapit -->
+    <rect x="26" y="26" width="36" height="60"/>
+    <rect x="68" y="46" width="30" height="40"/>
+    <!-- jalat ja maaviiva -->
+    <path d="M32 86V98M56 86V98M74 86V98M92 86V98M16 98H108"/>
+  </g>
+</svg>

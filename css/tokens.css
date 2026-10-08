@@ -1,0 +1,60 @@
+/* KSBR — generated from tokens.json */
+:root, [data-theme="light"] {
+  --accent: #fd5000;
+  --ink: #000000;
+  --ink-2: #636362;
+  --white: #ffffff;
+  --tint: #fdf5ee;
+  --surface-2: #f5f5f4;
+  --surface: #e6e6e5;
+  --line: #c8c8c7;
+  --line-dark: #3a3a3a;
+  --on-dark-muted: #b5b5b4;
+  --on-dark: #d0d0cf;
+  --on-dark-line: #7a7a79;
+  --gap: #fff2cc;
+  --icon-blue: #53a7c1;
+  --extra-ochre: #d4a017;
+  --extra-red: #c8102e;
+  --extra-green: #2c6e4c;
+  --extra-violet: #523c8c;
+  --extra-navy: #212b46;
+}
+:root {
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 24px;
+  --space-6: 32px;
+  --space-7: 48px;
+  --space-8: 64px;
+  --space-9: 80px;
+  --space-10: 96px;
+  --radius-0: 0;
+  --radius-card: 4px;
+  --radius-field: 4px;
+  --radius-button: 4px;
+  --radius-note: 8px;
+  --page-width: 1440px;
+  --content-width: 1280px;
+  --text-width: 760px;
+  --nav-height: 80px;
+  --control-height: 56px;
+  --font-sans: Ubuntu, "Open Sans", Calibri, Arial, sans-serif;
+  --font-head: Ubuntu, "Open Sans", Calibri, Arial, sans-serif;
+  --text-display: 700 64px/68px var(--font-head);
+  --text-h1: 700 52px/60px var(--font-head);
+  --text-h2: 700 36px/44px var(--font-head);
+  --text-h3: 700 24px/32px var(--font-head);
+  --text-h4: 700 18px/28px var(--font-head);
+  --text-eyebrow: 700 14px/20px var(--font-head);
+  --text-lead: 400 20px/30px var(--font-sans);
+  --text-body: 400 18px/28px var(--font-sans);
+  --text-small: 400 14px/20px var(--font-sans);
+  --text-label: 700 14px/20px var(--font-sans);
+  --text-stat: 700 48px/56px var(--font-sans);
+  --text-button: 700 18px/24px var(--font-sans);
+  --text-link: 500 18px/24px var(--font-sans);
+  --text-nav: 500 16px/24px var(--font-sans);
+}

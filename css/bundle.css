@@ -1,0 +1,544 @@
+@import url("https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,400&display=swap");
+/* GENEROITU: GRK/multisite/build.py (base.css + skin-ksbr.css). Älä muokkaa tätä tiedostoa. */
+/* GRK + KSBR multisite — yhteiset lohkot. Arvot vain semanttisista tokeneista; ilme tulee skin-tiedostosta.
+   Luokat b-*; rakenne vastaa GDS-lohkoja (GRK/DESIGN.md). */
+
+.b-root { margin: 0; background: var(--white); color: var(--ink); font-family: var(--font-sans); font-size: 18px; line-height: 28px; -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility; }
+:where(.b-root) *, :where(.b-root) *::before, :where(.b-root) *::after { box-sizing: border-box; }
+:where(.b-root) :where(h1, h2, h3, h4, p, ul, ol, dl, dd, figure) { margin: 0; }
+:where(.b-root) :where(ul, ol) { padding: 0; list-style: none; }
+:where(.b-root) :where(a) { color: inherit; }
+:where(.b-root) :focus-visible { outline: 2px solid var(--ink); outline-offset: 3px; }
+:where(.b-root) :where(img) { display: block; max-width: 100%; }
+
+/* ---------- Typografia */
+.b-display, .b-h1, .b-h2, .b-h3, .b-stat__value, .b-strip h2 { font-family: var(--font-head); }
+.b-display { font-size: 64px; line-height: 68px; font-weight: 700; letter-spacing: -.01em; }
+.b-h1 { font-size: 52px; line-height: 60px; font-weight: 700; letter-spacing: -.015em; text-wrap: balance; max-width: 14em; }
+.b-h2 { font-size: 36px; line-height: 44px; font-weight: 700; letter-spacing: -.01em; text-wrap: balance; }
+.b-h3 { font-size: 24px; line-height: 32px; font-weight: 700; }
+.b-h4 { font-size: 18px; line-height: 28px; font-weight: 700; }
+.b-eyebrow { font-size: 14px; line-height: 20px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; color: var(--ink-2); }
+.b-lead { font-size: 20px; line-height: 30px; max-width: 60ch; }
+.b-body { font-size: 18px; line-height: 28px; max-width: 70ch; }
+.b-small { font-size: 14px; line-height: 20px; color: var(--ink-2); }
+.b-muted { color: var(--ink-2); }
+.b-num { font-variant-numeric: lining-nums tabular-nums; }
+mark.b-gap { background: var(--gap); color: var(--ink); padding: 1px .3em; border-radius: 3px; font-weight: inherit; -webkit-box-decoration-break: clone; box-decoration-break: clone; }
+
+/* ---------- Ruudukko ja osiot */
+.b-section { padding: var(--space-10) var(--space-9); }
+.b-section--tight { padding-block: var(--space-8); }
+.b-section--tint { background: var(--tint); }
+.b-section--surface { background: var(--surface-2); }
+.b-section--black { background: var(--ink); color: var(--white); }
+.b-section--orange { background: var(--accent); color: var(--ink); }
+.b-inner { max-width: var(--content-width); margin: 0 auto; }
+.b-head { max-width: var(--text-width); margin-bottom: var(--space-7); display: grid; gap: var(--space-4); }
+.b-head .b-body, .b-head .b-lead { color: var(--ink-2); }
+.b-section--black .b-head .b-body { color: var(--on-dark-muted); }
+.b-grid { display: grid; gap: var(--space-5); }
+.b-grid--2 { grid-template-columns: repeat(2, 1fr); }
+.b-grid--3 { grid-template-columns: repeat(3, 1fr); }
+.b-grid--4 { grid-template-columns: repeat(4, 1fr); }
+
+/* ---------- Painikkeet (brändikirjan NAPPI: pyöristys 4) */
+.b-btn { display: inline-flex; align-items: center; justify-content: center; gap: var(--space-2); min-height: var(--control-height); padding: 0 var(--space-6); border: 0; border-radius: var(--radius-button); background: var(--accent); color: var(--white); font: 700 19px/24px var(--font-sans); text-decoration: none; cursor: pointer; transition: background-color .2s cubic-bezier(.22,1,.36,1), color .2s cubic-bezier(.22,1,.36,1); }
+.b-btn:hover { background: var(--ink); color: var(--white); }
+.b-btn--secondary { background: transparent; color: var(--ink); box-shadow: inset 0 0 0 2px var(--ink); }
+.b-btn--secondary:hover { background: var(--ink); color: var(--white); }
+.b-btn--light { background: var(--white); color: var(--ink); }
+.b-btn--light:hover { background: var(--ink); color: var(--white); }
+.b-btn--sm { min-height: 44px; padding: 0 var(--space-5); }
+.b-btn svg { width: 20px; height: 20px; flex: none; }
+.b-btns { display: flex; flex-wrap: wrap; gap: var(--space-3); align-items: center; }
+
+/* Linkki > (brändikirja s. 25): medium, ei alleviivausta levossa */
+.b-link { display: inline; padding-block: 10px; font: 500 18px/24px var(--font-sans); color: inherit; text-decoration: none; }
+.b-link::after { content: ""; display: inline-block; width: 7px; height: 7px; border: solid currentColor; border-width: 2px 2px 0 0; transform: rotate(45deg); margin-left: 8px; vertical-align: 2px; transition: transform .2s cubic-bezier(.22,1,.36,1); }
+.b-link:hover { text-decoration: underline; text-underline-offset: 5px; text-decoration-thickness: 1px; }
+.b-link:hover::after { transform: translateX(3px) rotate(45deg); }
+.b-link--ext::after { transform: rotate(0); width: 8px; height: 8px; }
+.b-link--sm { font-size: 16px; }
+
+/* Ikonit: viiva 1.5, 20 px, väri tekstistä */
+.b-ico { width: 20px; height: 20px; flex: none; fill: none; stroke: currentColor; stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; }
+
+/* ---------- Kuvapaikka */
+.b-media { position: relative; background: var(--surface); border-radius: var(--radius-card); overflow: hidden; aspect-ratio: 4 / 3; }
+.b-media--wide { aspect-ratio: 16 / 9; }
+.b-media--square { aspect-ratio: 1; }
+.b-media--portrait { aspect-ratio: 3 / 4; }
+.b-media > span { position: absolute; left: var(--space-5); bottom: var(--space-4); right: var(--space-5); font-size: 14px; line-height: 20px; font-weight: 500; color: var(--ink-2); }
+.b-media > span::before { content: ""; display: inline-block; width: 16px; height: 12px; margin-right: 8px; vertical-align: -1px; border: 1.5px solid currentColor; border-radius: 2px; background: linear-gradient(currentColor, currentColor) 3px 3px / 3px 3px no-repeat; }
+
+/* ---------- Ylätunniste */
+.b-nav { background: var(--white); border-bottom: 1px solid var(--line); }
+.b-nav__util { display: flex; justify-content: flex-end; gap: var(--space-5); padding: 6px var(--space-9) 0; font-size: 14px; line-height: 20px; color: var(--ink-2); }
+.b-nav__util a { text-decoration: none; }
+.b-nav__util a[aria-current] { color: var(--ink); font-weight: 700; }
+.b-nav__bar { display: flex; align-items: center; gap: var(--space-6); height: var(--nav-height); padding: 0 var(--space-9); }
+.b-nav__logo { height: 52px; width: auto; margin-right: auto; }
+.b-nav__menu { display: flex; align-items: stretch; height: 100%; }
+.b-nav__item { display: flex; align-items: center; gap: 6px; padding: 0 14px; font: 500 16px/24px var(--font-sans); text-decoration: none; border-bottom: 3px solid transparent; border-top: 3px solid transparent; }
+.b-nav__item:hover { border-bottom-color: var(--line); }
+.b-nav__item[aria-current] { font-weight: 700; border-bottom-color: var(--accent); }
+.b-nav__item--menu::after { content: ""; width: 6px; height: 6px; border: solid currentColor; border-width: 0 1.5px 1.5px 0; transform: translateY(-2px) rotate(45deg); margin-left: 4px; }
+.b-nav__search { display: grid; place-items: center; width: 44px; height: 44px; border-radius: var(--radius-card); }
+.b-nav__search:hover { background: var(--surface-2); }
+
+/* ---------- Murupolku */
+.b-crumbs { display: flex; flex-wrap: wrap; gap: var(--space-2); padding: var(--space-5) var(--space-9) 0; font-size: 14px; line-height: 20px; color: var(--ink-2); }
+.b-crumbs li + li::before { content: "›"; margin-right: var(--space-2); }
+.b-crumbs a { text-decoration: underline; text-underline-offset: 3px; text-decoration-color: var(--line); }
+.b-crumbs a:hover { text-decoration-color: currentColor; }
+
+/* ---------- Hero (heroSplit) */
+.b-hero { display: grid; grid-template-columns: 6fr 6fr; gap: var(--space-9); align-items: center; padding: var(--space-6) var(--space-9) var(--space-10); }
+.b-hero__text { display: grid; gap: var(--space-5); align-content: center; }
+.b-hero__text .b-btns { margin-top: var(--space-3); }
+.b-facts { display: flex; flex-wrap: wrap; gap: var(--space-2) var(--space-5); margin-top: var(--space-4); padding-top: var(--space-5); border-top: 1px solid var(--line); font-size: 14px; line-height: 20px; font-weight: 500; }
+.b-facts li { display: inline-flex; align-items: center; gap: var(--space-2); }
+.b-facts li::before { content: ""; width: 8px; height: 8px; background: var(--accent); border-radius: 1px; }
+
+/* ---------- Tekstihero (pageHeader) */
+.b-pagehead { padding: var(--space-6) var(--space-9) var(--space-8); display: grid; gap: var(--space-5); }
+.b-pagehead--aside { grid-template-columns: 7fr 4fr; column-gap: var(--space-9); align-items: end; }
+.b-search { display: flex; max-width: 640px; }
+.b-search .b-input { border-radius: var(--radius-field) 0 0 var(--radius-field); border-right: 0; }
+.b-search .b-btn { border-radius: 0 var(--radius-button) var(--radius-button) 0; }
+
+/* ---------- Tunnusluvut */
+.b-stats { display: grid; grid-template-columns: repeat(4, 1fr); border-top: 2px solid var(--ink); }
+.b-stat { padding: var(--space-5) var(--space-5) 0 0; }
+.b-stat + .b-stat { padding-left: var(--space-5); border-left: 1px solid var(--line); }
+.b-stat__value { font-size: 48px; line-height: 56px; font-weight: 700; color: var(--accent); font-variant-numeric: lining-nums tabular-nums; }
+.b-stat__label { margin-top: var(--space-1); font-size: 18px; line-height: 28px; }
+.b-stat__src { margin-top: var(--space-2); font-size: 14px; line-height: 20px; color: var(--ink-2); }
+.b-stat--missing .b-stat__value { color: var(--line); }
+
+/* ---------- Toimitusketju */
+.b-chain { display: grid; grid-template-columns: repeat(var(--n, 5), 1fr); grid-template-rows: auto auto 1fr auto; column-gap: var(--space-5); }
+.b-chain__step { display: grid; grid-template-rows: subgrid; grid-row: span 4; row-gap: var(--space-3); padding-top: var(--space-5); border-top: 1px solid var(--ink); position: relative; }
+.b-chain__step::before { content: ""; position: absolute; top: -5px; left: 0; width: 9px; height: 9px; background: var(--accent); border-radius: 2px; }
+.b-chain__no { font-size: 40px; line-height: 44px; font-weight: 700; letter-spacing: -.02em; color: var(--accent); font-variant-numeric: lining-nums tabular-nums; }
+.b-chain__title { font-size: 18px; line-height: 24px; font-weight: 700; }
+.b-chain__desc { font-size: 16px; line-height: 24px; color: var(--ink-2); }
+.b-chain__step .b-link { font-size: 16px; min-height: 32px; }
+
+/* ---------- Vaiheet 01–04 */
+.b-steps { display: grid; grid-template-columns: repeat(var(--n, 4), 1fr); gap: var(--space-5); counter-reset: step; }
+.b-step { counter-increment: step; display: grid; gap: var(--space-3); align-content: start; padding-top: var(--space-5); border-top: 1px solid var(--line); }
+.b-step::before { content: counter(step, decimal-leading-zero); font: 700 14px/20px var(--font-sans); color: var(--accent); font-variant-numeric: tabular-nums; }
+.b-step h3 { font-size: 20px; line-height: 28px; font-weight: 700; }
+.b-step p { font-size: 16px; line-height: 24px; color: var(--ink-2); }
+
+/* ---------- Toimialakortit */
+.b-industry { display: grid; grid-template-rows: auto auto 1fr auto; gap: var(--space-3); padding: var(--space-6); background: var(--white); border: 1px solid var(--line); border-radius: var(--radius-card); text-decoration: none; transition: border-color .2s; }
+.b-industry:hover { border-color: var(--ink); }
+.b-industry img { width: 72px; height: 72px; margin: -8px 0 var(--space-2) -8px; }
+.b-industry h3 { font-size: 20px; line-height: 28px; font-weight: 700; }
+.b-industry p { font-size: 16px; line-height: 24px; color: var(--ink-2); }
+.b-industry .b-link { font-size: 16px; min-height: 28px; }
+
+/* ---------- Referenssit */
+.b-case { display: grid; grid-template-rows: auto 1fr; background: var(--white); border: 1px solid var(--line); border-radius: var(--radius-card); overflow: hidden; text-decoration: none; transition: border-color .2s; }
+.b-case:hover { border-color: var(--ink); }
+.b-case .b-media { border-radius: 0; }
+.b-case__body { display: grid; gap: var(--space-3); align-content: start; padding: var(--space-5); }
+.b-case__meta { font-size: 14px; line-height: 20px; color: var(--ink-2); }
+.b-case h3 { font-size: 20px; line-height: 28px; font-weight: 700; }
+.b-qa { display: grid; gap: var(--space-3); margin-top: var(--space-2); }
+.b-qa dt { font-size: 14px; line-height: 20px; font-weight: 700; color: var(--ink-2); }
+.b-qa dd { font-size: 16px; line-height: 24px; }
+.b-case--lead { grid-template-columns: 7fr 5fr; grid-template-rows: none; }
+.b-case--lead .b-media { aspect-ratio: auto; height: 100%; min-height: 420px; }
+.b-case--lead .b-case__body { padding: var(--space-6); gap: var(--space-4); }
+.b-case--lead h3 { font-size: 24px; line-height: 32px; }
+
+/* ---------- Todisteet */
+.b-proof { display: grid; grid-template-columns: 5fr 7fr; gap: var(--space-9); }
+.b-proof__rows li { display: grid; grid-template-columns: 240px 1fr; gap: var(--space-5); padding: var(--space-5) 0; border-top: 1px solid var(--line); }
+.b-proof__rows li:last-child { border-bottom: 1px solid var(--line); }
+.b-proof__rows b { font-size: 20px; line-height: 28px; }
+.b-proof__rows p { font-size: 16px; line-height: 24px; color: var(--ink-2); }
+.b-certs { display: flex; flex-wrap: wrap; gap: var(--space-3); margin-top: var(--space-6); }
+.b-cert { display: grid; place-items: center; min-width: 112px; height: 64px; padding: 0 var(--space-4); border: 1px solid var(--line); border-radius: var(--radius-card); font-size: 14px; line-height: 18px; font-weight: 700; text-align: center; }
+.b-cert small { display: block; font-weight: 400; color: var(--ink-2); }
+
+/* ---------- Tarkistuslista */
+.b-check { display: grid; grid-template-columns: repeat(2, 1fr); column-gap: var(--space-9); }
+.b-check li { display: grid; grid-template-columns: 24px 1fr; gap: var(--space-3); padding: var(--space-5) 0; border-top: 1px solid var(--line); }
+.b-check li::before { content: ""; width: 14px; height: 8px; margin-top: 8px; border: solid var(--accent); border-width: 0 0 2.5px 2.5px; transform: rotate(-45deg); }
+.b-check b { display: block; font-size: 18px; line-height: 28px; }
+.b-check p { font-size: 16px; line-height: 24px; color: var(--ink-2); }
+
+/* ---------- UKK-haitari */
+.b-acc { border-top: 1px solid var(--line); }
+.b-acc:last-child { border-bottom: 1px solid var(--line); }
+.b-acc summary { display: flex; align-items: center; justify-content: space-between; gap: var(--space-5); min-height: 72px; padding: var(--space-4) 0; font-size: 18px; line-height: 28px; font-weight: 700; cursor: pointer; list-style: none; }
+.b-acc summary::-webkit-details-marker { display: none; }
+.b-acc summary:hover span { text-decoration: underline; text-underline-offset: 4px; text-decoration-thickness: 1px; }
+.b-acc summary i { position: relative; flex: none; width: 32px; height: 32px; border-radius: 50%; box-shadow: inset 0 0 0 1.5px var(--ink); }
+.b-acc summary i::before, .b-acc summary i::after { content: ""; position: absolute; left: 50%; top: 50%; width: 12px; height: 2px; background: var(--ink); transform: translate(-50%, -50%); transition: transform .25s cubic-bezier(.22,1,.36,1); }
+.b-acc summary i::after { transform: translate(-50%, -50%) rotate(90deg); }
+.b-acc[open] summary i::after { transform: translate(-50%, -50%) rotate(0); }
+.b-acc__body { padding: 0 56px var(--space-6) 0; max-width: 70ch; color: var(--ink-2); font-size: 18px; line-height: 28px; }
+
+/* ---------- Henkilökortti ja yhteyshenkilöt */
+.b-person { display: grid; grid-template-columns: 96px 1fr; gap: var(--space-5); align-items: stretch; }
+.b-person__img { width: 96px; height: 100%; min-height: 96px; border-radius: var(--radius-card); background: var(--surface); display: grid; place-items: center; color: var(--ink-2); }
+.b-person__img svg { width: 40px; height: 40px; fill: none; stroke: currentColor; stroke-width: 1.5; }
+.b-person__name { font-size: 18px; line-height: 28px; font-weight: 700; }
+.b-person__role { font-size: 16px; line-height: 24px; color: var(--ink-2); }
+.b-person__ch { display: grid; gap: 2px; margin-top: var(--space-2); font-size: 16px; line-height: 24px; }
+.b-person__ch a { display: inline-flex; align-items: center; gap: var(--space-2); text-decoration: none; min-height: 28px; }
+.b-person__ch a:hover { text-decoration: underline; text-underline-offset: 3px; }
+.b-person__ch .b-ico { width: 18px; height: 18px; color: var(--ink-2); }
+.b-contacts { display: grid; grid-template-columns: 4fr 8fr; gap: var(--space-9); }
+.b-contacts__list { display: grid; grid-template-columns: repeat(2, 1fr); gap: var(--space-6) var(--space-5); align-content: start; }
+.b-contacts__group { grid-column: 1 / -1; padding-top: var(--space-4); border-top: 2px solid var(--ink); }
+
+/* ---------- Lomake */
+.b-field { display: grid; gap: 6px; }
+.b-field > label { font-size: 14px; line-height: 20px; font-weight: 700; }
+.b-field > small { font-size: 14px; line-height: 20px; color: var(--ink-2); }
+.b-input, .b-textarea, .b-select { width: 100%; min-height: var(--control-height); padding: 14px 16px; border: 1px solid var(--line); border-radius: var(--radius-field); background: var(--white); color: var(--ink); font: 400 18px/26px var(--font-sans); }
+.b-input::placeholder, .b-textarea::placeholder { color: var(--ink-2); }
+.b-input:hover, .b-textarea:hover, .b-select:hover { border-color: var(--ink-2); }
+.b-input:focus, .b-textarea:focus, .b-select:focus { outline: none; border-color: var(--ink); box-shadow: 0 0 0 1px var(--ink); }
+.b-textarea { min-height: 128px; resize: vertical; }
+.b-select { appearance: none; background-image: linear-gradient(45deg, transparent 50%, currentColor 50%), linear-gradient(135deg, currentColor 50%, transparent 50%); background-position: calc(100% - 22px) 25px, calc(100% - 17px) 25px; background-size: 5px 5px; background-repeat: no-repeat; padding-right: 44px; }
+.b-form { display: grid; grid-template-columns: repeat(2, 1fr); gap: var(--space-5); }
+.b-form .b-field--full { grid-column: 1 / -1; }
+.b-form__foot { grid-column: 1 / -1; display: flex; align-items: center; gap: var(--space-5); }
+.b-projcontact { display: grid; grid-template-columns: 7fr 4fr; gap: var(--space-9); }
+.b-aside { padding: var(--space-6); background: var(--tint); border-radius: var(--radius-card); display: grid; gap: var(--space-4); align-content: start; }
+.b-next { display: grid; gap: var(--space-2); padding-top: var(--space-4); border-top: 1px solid var(--line); counter-reset: n; }
+.b-next li { counter-increment: n; display: grid; grid-template-columns: 24px 1fr; font-size: 16px; line-height: 24px; }
+.b-next li::before { content: counter(n) "."; font-weight: 700; }
+
+/* ---------- Suodatin + lista (haku ennen listaa) */
+.b-filters { display: flex; flex-wrap: wrap; align-items: end; gap: var(--space-4); padding-bottom: var(--space-5); border-bottom: 2px solid var(--ink); }
+.b-filters .b-field { min-width: 220px; }
+.b-filters .b-field--grow { flex: 1; }
+.b-chips { display: flex; flex-wrap: wrap; gap: var(--space-2); margin-top: var(--space-4); align-items: center; }
+.b-chip { display: inline-flex; align-items: center; gap: var(--space-2); min-height: 36px; padding: 0 var(--space-4); border: 1px solid var(--line); border-radius: var(--radius-button); background: var(--white); font: 500 14px/20px var(--font-sans); color: var(--ink); cursor: pointer; }
+.b-chip[aria-pressed="true"] { background: var(--ink); border-color: var(--ink); color: var(--white); }
+.b-results { margin-top: var(--space-5); font-size: 14px; line-height: 20px; color: var(--ink-2); }
+
+/* ---------- Taulukko */
+.b-table { width: 100%; border-collapse: collapse; font-size: 16px; line-height: 24px; font-variant-numeric: lining-nums tabular-nums; }
+.b-table th { text-align: left; padding: var(--space-3) var(--space-4) var(--space-3) 0; font-size: 14px; line-height: 20px; font-weight: 700; border-bottom: 2px solid var(--ink); }
+.b-table td { padding: var(--space-4) var(--space-4) var(--space-4) 0; border-bottom: 1px solid var(--line); vertical-align: top; }
+.b-table td:first-child { font-weight: 700; }
+.b-table caption { caption-side: bottom; text-align: left; padding-top: var(--space-3); font-size: 14px; line-height: 20px; color: var(--ink-2); }
+.b-dot { display: inline-block; width: 10px; height: 10px; border-radius: 50%; background: var(--accent); }
+.b-dot--off { background: transparent; box-shadow: inset 0 0 0 1.5px var(--ink-2); }
+
+/* ---------- Sitaatti */
+.b-quote { display: grid; grid-template-columns: 1fr 3fr; gap: var(--space-9); align-items: start; }
+.b-quote blockquote { margin: 0; font-size: 32px; line-height: 42px; font-weight: 500; letter-spacing: -.005em; text-wrap: balance; }
+.b-quote blockquote::before { content: "”"; display: block; font-size: 96px; line-height: 64px; font-weight: 700; color: var(--accent); }
+.b-quote figcaption { margin-top: var(--space-5); font-size: 16px; line-height: 24px; }
+.b-quote figcaption b { display: block; }
+
+/* ---------- Statement-palkki (strip) */
+.b-strip { display: grid; grid-template-columns: 1fr auto; gap: var(--space-6); align-items: center; padding: var(--space-7) var(--space-8); background: var(--ink); color: var(--white); border-radius: var(--radius-card); }
+.b-strip h2 { font-size: 32px; line-height: 40px; font-weight: 700; }
+.b-strip p { margin-top: var(--space-2); color: var(--on-dark-muted); font-size: 18px; line-height: 28px; max-width: 60ch; }
+.b-strip--orange { background: var(--accent); color: var(--ink); }
+.b-strip--orange p { color: var(--ink); }
+
+/* ---------- Alatunniste */
+.b-footer { background: var(--ink); color: var(--white); padding: var(--space-8) var(--space-9) var(--space-6); }
+.b-footer__top { display: grid; grid-template-columns: 4fr 2fr 2fr 2fr 2fr; gap: var(--space-5); }
+.b-footer__logo { height: 52px; width: auto; margin-bottom: var(--space-5); }
+.b-footer__addr { font-size: 16px; line-height: 24px; font-style: normal; }
+.b-footer__addr a { text-decoration: none; }
+.b-footer h4 { font-size: 14px; line-height: 20px; font-weight: 700; color: var(--on-dark-muted); margin-bottom: var(--space-3); }
+.b-footer li a { display: inline-block; padding: 4px 0; font-size: 16px; line-height: 24px; text-decoration: none; }
+.b-footer a:hover { text-decoration: underline; text-underline-offset: 3px; }
+.b-footer__bottom { display: flex; flex-wrap: wrap; gap: var(--space-5); justify-content: space-between; margin-top: var(--space-8); padding-top: var(--space-5); border-top: 1px solid var(--line-dark); font-size: 14px; line-height: 20px; color: var(--on-dark-muted); }
+.b-footer__bottom nav { display: flex; gap: var(--space-5); }
+.b-footer__bottom a { text-decoration: none; }
+
+/* ---------- Pinnat (väriparit, brändikirja s. 25) */
+.b-surface { padding: var(--space-6); border-radius: var(--radius-card); display: grid; gap: var(--space-3); align-content: start; min-height: 240px; border: 1px solid var(--line); }
+.b-surface img { height: 34px; width: auto; margin-bottom: var(--space-2); }
+.b-surface h3 { font-size: 22px; line-height: 28px; font-weight: 700; }
+.b-surface p { font-size: 16px; line-height: 24px; }
+.b-surface > :last-child { margin-top: auto; justify-self: start; }
+.b-surface--orange { background: var(--accent); border-color: var(--accent); color: var(--ink); }
+.b-surface--tint { background: var(--tint); border-color: var(--tint); }
+.b-surface--black { background: var(--ink); border-color: var(--ink); color: var(--white); }
+.b-surface--navy { background: var(--extra-navy); border-color: var(--extra-navy); color: var(--white); }
+
+/* ---------- Suunnittelijan muistiinpano (ei tuotantoon) */
+.b-note { display: grid; gap: var(--space-1); max-width: 490px; padding: var(--space-4) var(--space-5); border-radius: var(--radius-note); background: var(--tint); border: 1px solid var(--surface); font-size: 14px; line-height: 20px; }
+.b-note b { font-weight: 700; }
+.b-note--open { background: var(--surface-2); }
+.b-note--seo { background: var(--white); border-style: dashed; border-color: var(--line); }
+
+
+/* =====================================================================
+   YHTEISET SIVULOHKOT (8.10.2026) — nostettu KSBR-sivujen toistuvista
+   paikallisista tyyleistä. Sama merkkaus GRK:lla ja KSBR:llä.
+   ===================================================================== */
+
+/* Osion harmaa tausta */
+.b-section--gray { background: var(--surface-2); }
+
+/* Lohkon otsikko 2 px viivalla (rule-head) */
+.b-head--rule { border-top: 2px solid var(--ink); padding-top: var(--space-5); max-width: none; }
+
+/* Kaksipalstaiset asettelut */
+.b-split { display: grid; grid-template-columns: 5fr 7fr; gap: var(--space-9); align-items: start; }
+.b-compare { display: grid; grid-template-columns: 8fr 4fr; gap: 48px; align-items: start; }
+.b-compare > * { min-width: 0; }
+.b-compare__img { display: block; width: 100%; height: auto; }
+.b-faq { display: grid; grid-template-columns: 4fr 8fr; gap: var(--space-9); }
+.b-tablebox { overflow-x: auto; }
+
+/* Tunnusluvut kolmessa palstassa ja etuliite (esim. "yli") */
+.b-stats--3 { grid-template-columns: repeat(3, minmax(0, 1fr)); margin-top: 48px; }
+.b-stat__pre { font-size: 24px; font-weight: 700; line-height: 0; }
+
+/* Yhteyshenkilöt kolmessa palstassa (--2 kahdessa) */
+.b-people { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--space-6) var(--space-5); }
+.b-people--2 { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 40px 48px; max-width: 960px; }
+
+/* Kevyt lomake yhteyshenkilöiden alla */
+.b-lightform { margin-top: var(--space-8); padding-top: 48px; border-top: 1px solid var(--line); display: grid; grid-template-columns: 4fr 8fr; gap: var(--space-9); align-items: start; }
+.b-lightform--flush { margin-top: 0; padding-top: 0; border-top: 0; }
+
+/* Kenelle teemme: 4 saraketta kuva + viivaotsikko */
+.b-who { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: var(--space-5); }
+.b-who--3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.b-who__col { display: grid; align-content: start; }
+.b-who__img { aspect-ratio: 3 / 2; margin-bottom: 20px; }
+.b-who__col h3 { margin: 0; padding-top: var(--space-4); border-top: 1px solid var(--ink); font-size: 20px; line-height: 28px; font-weight: 700; }
+.b-who__col p { margin: var(--space-2) 0 0; font-size: 16px; line-height: 24px; color: var(--ink-2); }
+.b-who__limit { margin-top: var(--space-6); font-size: 16px; line-height: 24px; color: var(--ink-2); }
+
+/* Miksi-lohko: iso luku, selite, väite ja sertifikaatit (tumma pinta) */
+.b-why { background: var(--ink); color: var(--white); }
+.b-why__grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); grid-template-rows: repeat(4, auto); column-gap: var(--space-5); row-gap: 0; }
+.b-why__col { display: grid; grid-row: span 4; grid-template-rows: subgrid; }
+.b-why__num { display: flex; align-items: baseline; gap: var(--space-2); margin: 0; font-family: var(--font-head); font-size: 72px; line-height: 76px; font-weight: 700; letter-spacing: -.02em; color: var(--accent); font-variant-numeric: lining-nums tabular-nums; }
+.b-why__pre { font-size: 28px; line-height: 1; letter-spacing: 0; }
+.b-why__num .b-gap { font-size: 24px; line-height: 32px; letter-spacing: 0; align-self: center; }
+.b-why__label { margin: var(--space-2) 0 0; padding-bottom: var(--space-6); border-bottom: 1px solid var(--on-dark-line); font-size: 18px; line-height: 28px; color: var(--white); }
+.b-why__label b { font-weight: 700; color: var(--accent); margin-right: 4px; }
+.b-why__title { margin: var(--space-6) 0 0; font-size: 24px; line-height: 32px; font-weight: 700; color: var(--white); }
+.b-why__text { margin: var(--space-2) 0 0; font-size: 16px; line-height: 24px; color: var(--on-dark); max-width: 36ch; }
+.b-why__certs { display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-3) var(--space-5); margin-top: var(--space-8); padding-top: var(--space-5); border-top: 1px solid var(--on-dark-line); font-size: 14px; line-height: 20px; }
+.b-why__certs-label { font-weight: 700; color: var(--on-dark-muted); text-transform: uppercase; letter-spacing: .06em; }
+.b-why__cert { font-weight: 700; color: var(--white); }
+.b-why .b-h2, .b-why .b-head .b-body { color: var(--white); }
+
+/* Footerin uutiskirje */
+.b-footer__news { display: flex; gap: var(--space-2); margin-top: var(--space-3); }
+.b-footer__news .b-input { min-height: 48px; padding: 10px 14px; font-size: 16px; }
+.b-footer__news .b-btn { min-height: 48px; padding: 0 20px; }
+.b-footer__top { grid-template-columns: 3fr 2fr 2fr 2fr 3fr; }
+
+/* Palvelukortit (serviceGrid), toteutusmallien välilehdet (deliveryModels) ja menetelmäkortti (methodCard): tehty GRK:lle 8.10.2026, yhteisiä */
+/* ---------- Kuvitetut kortit: toimialat (industryCards) ja palvelut (serviceGrid) */
+.b-svc { display: grid; grid-template-columns: 96px 1fr; gap: var(--space-4); align-items: center; padding: var(--space-4) var(--space-5) var(--space-4) var(--space-3); background: var(--white); border: 1px solid var(--line); border-radius: var(--radius-card); text-decoration: none; transition: border-color .2s; }
+.b-svc:hover { border-color: var(--ink); }
+.b-svc img { width: 96px; height: 96px; }
+.b-svc h3 { font-family: var(--font-head); font-size: 20px; line-height: 26px; font-weight: 700; }
+.b-svc p { margin-top: 2px; font-size: 14px; line-height: 20px; color: var(--ink-2); }
+.b-svc--cross { background: transparent; border-style: dashed; }
+.b-subhead { grid-column: 1 / -1; display: flex; align-items: baseline; gap: var(--space-4); padding-top: var(--space-4); border-top: 2px solid var(--ink); font: 700 20px/26px var(--font-head); }
+.b-subhead small { font: 400 14px/20px var(--font-sans); color: var(--ink-2); }
+.b-subhead:not(:first-child) { margin-top: var(--space-6); }
+
+/* ---------- Toteutusmallit välilehtinä (deliveryModels) */
+.b-tabs { display: flex; gap: 0; border-bottom: 1px solid var(--line); }
+.b-tab { min-height: 56px; padding: 0 var(--space-5); border: 0; border-bottom: 3px solid transparent; margin-bottom: -1px; background: none; font: 500 18px/24px var(--font-sans); color: var(--ink); cursor: pointer; }
+.b-tab:hover { border-bottom-color: var(--line); }
+.b-tab[aria-selected="true"] { font-weight: 700; border-bottom-color: var(--ink); }
+.b-tab abbr { text-decoration: none; }
+.b-panel { display: grid; grid-template-columns: 5fr 7fr; gap: var(--space-9); padding-top: var(--space-6); }
+.b-panel[hidden] { display: none; }
+.b-panel__text { display: grid; gap: var(--space-4); align-content: start; }
+.b-panel__text dl { display: grid; gap: var(--space-3); margin-top: var(--space-2); }
+.b-panel__text dt { font-size: 14px; line-height: 20px; font-weight: 700; color: var(--ink-2); }
+.b-panel__text dd { font-size: 16px; line-height: 24px; }
+.b-panel__fig { display: grid; gap: var(--space-5); align-content: start; }
+.b-panel__fig img { width: 100%; height: auto; }
+.b-example { display: grid; grid-template-columns: 160px 1fr; gap: var(--space-5); padding: var(--space-4); border: 1px solid var(--line); border-radius: var(--radius-card); text-decoration: none; }
+.b-example .b-media { aspect-ratio: 4 / 3; }
+.b-example p { font-size: 14px; line-height: 20px; color: var(--ink-2); }
+.b-example b { display: block; margin: 2px 0 var(--space-2); font-size: 18px; line-height: 24px; }
+
+/* ---------- Menetelmäkortti (methodCard) */
+.b-method { display: grid; grid-template-columns: 7fr 5fr; gap: var(--space-9); padding-top: var(--space-6); border-top: 2px solid var(--ink); scroll-margin-top: 96px; }
+.b-method__rows { display: grid; }
+.b-method__rows div { display: grid; grid-template-columns: 200px 1fr; gap: var(--space-5); padding: var(--space-4) 0; border-bottom: 1px solid var(--line); }
+.b-method__rows dt { font-size: 14px; line-height: 24px; font-weight: 700; color: var(--ink-2); }
+.b-method__rows dd { font-size: 16px; line-height: 24px; }
+.b-method__fig { display: grid; gap: var(--space-4); align-content: start; }
+.b-method__fig img { width: 100%; max-width: 360px; height: auto; }
+
+
+/* =====================================================================
+   VAIHE 2 (8.10.2026): KSBR-etusivun ratkaisut ja GRK-sivujen toistuvat
+   lohkot yhteisiksi. Olli: "KSBRn designissa on parempia juttuja".
+   ===================================================================== */
+
+/* Kuvahero koko leveydellä (video tai valokuva, teksti alhaalla vasemmalla) */
+.b-herofull { position: relative; display: grid; min-height: 680px; background: var(--ink); color: var(--white); overflow: hidden; }
+.b-herofull__media { position: absolute; inset: 0; display: flex; align-items: flex-start; justify-content: flex-end; padding: var(--space-5) var(--space-9); background: linear-gradient(90deg, rgba(0,0,0,.72) 0%, rgba(0,0,0,.35) 55%, rgba(0,0,0,.1) 100%), repeating-linear-gradient(135deg, var(--line-dark) 0 2px, var(--ink) 2px 22px); }
+.b-herofull__media span { max-width: 420px; font-size: 13px; line-height: 18px; color: var(--on-dark-muted); text-align: right; }
+.b-herofull__text { position: relative; align-self: end; max-width: 820px; padding: 0 var(--space-9) var(--space-9); display: grid; gap: var(--space-5); }
+.b-herofull h1 { margin: 0; font-family: var(--font-head); font-size: 72px; line-height: 76px; font-weight: 700; letter-spacing: -.015em; color: var(--white); text-wrap: balance; }
+.b-herofull h1 span { color: var(--accent); }
+.b-herofull .b-eyebrow { color: var(--white); }
+.b-herofull .b-lead { color: var(--on-dark); max-width: 60ch; }
+.b-herofull .b-link { color: var(--white); }
+.b-herofull__pause { position: absolute; right: var(--space-9); bottom: var(--space-6); display: inline-flex; align-items: center; gap: var(--space-2); min-height: 44px; padding: 0 var(--space-4); border: 1px solid rgba(255,255,255,.6); border-radius: var(--radius-field); background: rgba(0,0,0,.35); color: var(--white); font: 500 14px/20px var(--font-sans); cursor: pointer; }
+.b-herofull__pause svg { width: 16px; height: 16px; fill: none; stroke: currentColor; stroke-width: 2.5; }
+
+/* Toimintorivi (painike + nimetty linkki) */
+.b-actions { display: flex; flex-wrap: wrap; gap: var(--space-3) var(--space-6); align-items: center; }
+
+/* Pikatehtäväpalkki heron alla: 4 yleisintä asiaa ikoneineen */
+.b-tasks { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); margin: 0 var(--space-9); border-bottom: 1px solid var(--line); }
+.b-task { display: grid; grid-template-columns: 28px 1fr 12px; gap: var(--space-4); align-items: center; padding: var(--space-5) var(--space-5) var(--space-5) 0; color: var(--ink); text-decoration: none; }
+.b-task + .b-task { padding-left: var(--space-5); border-left: 1px solid var(--line); }
+.b-task .b-ico { width: 26px; height: 26px; color: var(--accent); }
+.b-task b { display: block; font-size: 18px; line-height: 24px; }
+.b-task small { display: block; font-size: 14px; line-height: 20px; color: var(--ink-2); }
+.b-task::after { content: ""; width: 8px; height: 8px; border: solid var(--ink); border-width: 2px 2px 0 0; transform: rotate(45deg); }
+.b-task:hover b { text-decoration: underline; text-underline-offset: 4px; }
+
+/* Referenssit epäsymmetrisesti: iso nosto + kaksi pinottua */
+.b-cases { display: grid; grid-template-columns: 7fr 5fr; grid-template-rows: auto auto; gap: var(--space-5); }
+.b-cases .b-case:first-child { grid-row: span 2; }
+.b-cases .b-case:first-child .b-media { aspect-ratio: 4 / 3; }
+.b-cases .b-case:not(:first-child) { grid-template-columns: 5fr 7fr; grid-template-rows: 1fr; align-items: stretch; }
+.b-cases .b-case:not(:first-child) .b-media { aspect-ratio: auto; min-height: 220px; height: 100%; border-radius: 0; }
+
+/* Ajankohtaista kuvilla + uutiskirje */
+.b-news { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--space-5); }
+.b-news__card { display: grid; gap: var(--space-3); align-content: start; color: var(--ink); text-decoration: none; }
+.b-news__card time { font-size: 14px; line-height: 20px; color: var(--ink-2); }
+.b-news__card h3 { margin: 0; font-size: 20px; line-height: 28px; font-weight: 700; }
+.b-news__card:hover h3 { text-decoration: underline; text-underline-offset: 4px; }
+.b-newsletter { display: grid; grid-template-columns: 5fr 7fr; gap: 48px; align-items: center; margin-top: 56px; padding: var(--space-6); background: var(--white); border-radius: var(--radius-card); }
+.b-newsletter h3 { margin: 0 0 4px; font-size: 22px; line-height: 28px; font-weight: 700; }
+.b-newsletter p { margin: 0; font-size: 16px; line-height: 24px; color: var(--ink-2); }
+.b-newsletter form { display: flex; gap: var(--space-2); }
+.b-newsletter .b-input { flex: 1; }
+
+/* Ura-nosto kuvalla ja sitaatilla */
+.b-career { display: grid; grid-template-columns: 6fr 6fr; gap: var(--space-9); align-items: center; }
+.b-career blockquote { margin: var(--space-6) 0 0; padding-top: var(--space-5); border-top: 1px solid var(--line); font-size: 20px; line-height: 30px; font-weight: 700; }
+.b-career cite { display: block; margin-top: var(--space-2); font-size: 16px; line-height: 24px; font-style: normal; font-weight: 400; color: var(--ink-2); }
+
+/* Sävytetty nosto (esim. varhainen mukaantulo): b-section--tint + b-split + b-actions */
+.b-section--tint .b-split { align-items: center; }
+
+/* Ladattava esite: kansi 3:4 + teksti + lataus */
+.b-download { display: grid; grid-template-columns: 3fr 9fr; gap: var(--space-9); align-items: center; }
+.b-download .b-media { max-width: 300px; aspect-ratio: 3 / 4; }
+.b-download__text { display: grid; gap: var(--space-4); align-content: start; max-width: 640px; }
+.b-download__meta { font-size: 14px; line-height: 20px; color: var(--ink-2); }
+
+/* Yhteyshenkilöt ryhmiteltyinä (toimiala tai liiketoiminta) */
+.b-people__group { display: grid; gap: var(--space-5); align-content: start; padding-top: var(--space-4); border-top: 2px solid var(--ink); }
+.b-people__group > h3 { margin: 0; font-family: var(--font-head); font-size: 20px; line-height: 26px; font-weight: 700; }
+
+/* Pikalinkit sivun osioihin (pagehead aside) */
+.b-toc { align-self: end; padding-top: var(--space-4); border-top: 2px solid var(--ink); }
+.b-toc__label { margin: 0 0 var(--space-2); font-size: 14px; line-height: 20px; color: var(--ink-2); }
+.b-toc ul { list-style: none; margin: 0; padding: 0; }
+.b-toc a { display: flex; justify-content: space-between; align-items: center; gap: var(--space-4); padding: 10px 0; border-bottom: 1px solid var(--line); font-size: 16px; line-height: 24px; font-weight: 700; text-decoration: none; }
+.b-toc a::after { content: ""; flex: none; width: 7px; height: 7px; border: solid currentColor; border-width: 0 2px 2px 0; transform: rotate(45deg); margin-top: -4px; }
+.b-toc a:hover { text-decoration: underline; text-underline-offset: 4px; }
+
+/* Palvelualue: kortti + viivoitettu alasivulista (hubit, megavalikon peili) */
+.b-svcarea { display: grid; gap: var(--space-4); align-content: start; }
+.b-svcarea ul { list-style: none; margin: 0; padding: 0 var(--space-3); }
+.b-svcarea li { border-top: 1px solid var(--line); }
+.b-svcarea li:last-child { border-bottom: 1px solid var(--line); }
+.b-svcarea li a { display: block; padding: var(--space-2) 0; font-size: 16px; line-height: 24px; text-decoration: none; }
+.b-svcarea li a:hover { text-decoration: underline; text-underline-offset: 3px; }
+.b-svc--plain { grid-template-columns: 1fr; padding: var(--space-4) var(--space-5); }
+.b-svc__biz { margin-top: 0; font-size: 14px; line-height: 20px; font-weight: 500; color: var(--ink-2); }
+
+/* Kortit: ristilinkki toiselle sivustolle ja tiivis linkkikortti */
+.b-industry--cross { background: transparent; border-style: dashed; }
+.b-industry--door { grid-template-rows: auto 1fr auto; }
+
+/* Linkkirivit lohkon alla */
+.b-linkrow { display: flex; flex-wrap: wrap; align-items: baseline; gap: var(--space-2) var(--space-6); margin-top: var(--space-6); font-size: 18px; line-height: 28px; }
+.b-linklist { display: grid; gap: var(--space-2); justify-items: start; margin-top: var(--space-6); padding-top: var(--space-5); border-top: 1px solid var(--line); }
+
+/* Haku- ja suodatinpalkki (myös KSBR Yhteyshenkilöt, Ura, Referenssit) */
+.b-chips { display: flex; flex-wrap: wrap; gap: var(--space-2); }
+
+/* Oikeat kuvat kuvapaikoissa (KSBR design -sessio 8.10.) */
+.b-media > img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.b-person__img > img { width: 100%; height: 100%; object-fit: cover; border-radius: inherit; }
+
+/* Palvelukartta: yksi kuva kaikista palveluista (GRK, isometrinen leikkaus) */
+.b-svcmap { display: grid; gap: var(--space-6); }
+.b-svcmap__img { display: block; width: 100%; height: auto; }
+.b-svcmap__legend { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: var(--space-2) var(--space-5); margin: 0; padding: var(--space-5) 0 0; list-style: none; border-top: 1px solid var(--line); }
+.b-svcmap__legend a { display: inline-flex; gap: var(--space-2); align-items: baseline; padding: 6px 0; font-size: 16px; line-height: 24px; font-weight: 500; text-decoration: none; }
+.b-svcmap__legend a:hover { text-decoration: underline; text-underline-offset: 4px; }
+.b-svcmap__legend small { font-size: 13px; color: var(--ink-2); font-weight: 400; }
+
+/* Hakasulkeet otsikossa pienempinä, jotta [Päätä] ei näytä otsikon osalta */
+.b-h1 .b-gap, .b-herofull h1 .b-gap, .b-h2 .b-gap { font-size: .4em; line-height: 1.4; vertical-align: middle; letter-spacing: 0; font-weight: 500; }
+
+/* Peilattu kuva-tekstinosto (kaksi nostoa peräkkäin: kuva vuorotellen oikealla) */
+.b-career--flip > :first-child, .b-split--flip > :first-child { order: 2; }
+
+/* ---------- Kapea näyttö (yhteinen kaikille sivuille) */
+@media (max-width: 900px) {
+  .b-nav__bar { flex-wrap: wrap; height: auto; padding: 16px 20px; gap: 12px; }
+  .b-nav__menu { flex-wrap: wrap; height: auto; width: 100%; }
+  .b-nav__item { padding: 10px 8px; }
+  .b-nav__util, .b-crumbs { padding-inline: 20px; }
+  .b-section { padding: 56px 20px; }
+  .b-hero { grid-template-columns: 1fr; gap: 32px; padding: 24px 20px 56px; }
+  .b-h1 { font-size: 34px; line-height: 40px; }
+  .b-h2 { font-size: 26px; line-height: 32px; }
+  .b-chain { grid-template-columns: 1fr; row-gap: 24px; }
+  .b-chain__step { grid-row: auto; grid-template-rows: none; }
+  .b-proof__rows li { grid-template-columns: 1fr; gap: 4px; }
+  .b-split, .b-compare, .b-faq, .b-proof, .b-lightform, .b-footer__top, .b-contacts, .b-projcontact, .b-panel, .b-method { grid-template-columns: 1fr; gap: 32px; }
+  .b-case--lead { grid-template-columns: 1fr; }
+  .b-grid--2, .b-grid--3, .b-grid--4, .b-people, .b-people--2, .b-stats--3, .b-form, .b-check, .b-who, .b-contacts__list { grid-template-columns: 1fr; }
+  .b-stats { grid-template-columns: repeat(2, 1fr); }
+  .b-stat + .b-stat { padding-left: 0; border-left: 0; }
+  .b-why__grid { grid-template-rows: none; row-gap: 48px; }
+  .b-why__col { grid-row: auto; grid-template-rows: none; }
+  .b-why__num { font-size: 56px; line-height: 60px; }
+  .b-strip { grid-template-columns: 1fr; padding: 32px 24px; }
+  .b-footer { padding: 48px 20px 24px; }
+  .b-tabs { overflow-x: auto; }
+  .b-herofull { min-height: 620px; }
+  .b-herofull__text { padding: 0 20px 88px; }
+  .b-herofull h1 { font-size: 44px; line-height: 48px; }
+  .b-herofull__media { padding: 16px 20px; }
+  .b-herofull__pause { right: 20px; bottom: 24px; }
+  .b-tasks { grid-template-columns: 1fr; margin: 0 20px; }
+  .b-task + .b-task { padding-left: 0; border-left: 0; border-top: 1px solid var(--line); }
+  .b-cases, .b-news, .b-newsletter, .b-career, .b-download { grid-template-columns: 1fr; gap: 24px; }
+  .b-cases .b-case:not(:first-child) { grid-template-columns: 1fr; }
+  .b-newsletter form { flex-direction: column; }
+  .b-svcmap__legend { grid-template-columns: 1fr 1fr; }
+  .b-career--flip > :first-child, .b-split--flip > :first-child { order: 0; }
+}
+
+
+/* =====================================================================
+   KSBR-ilme (brändikirja 06/2026). Yhteiset lohkot on piirretty KSBR:n
+   oletuksilla, joten tämä kerros on ohut: vain KSBR:n omat poikkeamat.
+   ===================================================================== */

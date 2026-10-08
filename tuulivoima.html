@@ -1,0 +1,388 @@
+<!doctype html>
+<html lang="fi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Tuulivoima · KSBR (prototyyppi)</title>
+
+<link rel="stylesheet" href="css/tokens.css">
+<link rel="stylesheet" href="css/bundle.css">
+</head>
+<body>
+
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,400&amp;display=swap">
+<style>
+body{margin:0;background:#fff}
+a{color:#000000}a:hover{color:#fd5000}
+.b-footer__top{grid-template-columns:3fr 2fr 2fr 2fr 3fr}
+.fnd{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));grid-template-rows:repeat(5,auto);column-gap:24px;row-gap:0}
+.fnd__card{display:grid;grid-row:span 5;grid-template-rows:subgrid;row-gap:0;background:#fff;border:1px solid #c8c8c7;border-radius:4px;overflow:hidden}
+.fnd__img{display:flex;align-items:flex-end;justify-content:center;padding:32px 32px 8px;background:#f5f5f4}
+.fnd__img img{display:block;width:100%;max-width:520px;height:auto}
+.fnd__head{display:grid;gap:8px;align-content:start;padding:32px 40px 0}
+.fnd__tag{margin:0;font-size:14px;line-height:20px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-2)}
+.fnd__head h3{margin:0;font-size:28px;line-height:34px;font-weight:700}
+.fnd__head p:last-child{margin:0;font-size:18px;line-height:28px}
+.fnd__fit{margin:24px 40px 0;padding:16px 0;border-top:1px solid #e6e6e5;font-size:16px;line-height:24px}
+.fnd__fit b{display:block;font-size:14px;line-height:20px;color:#636362}
+.fnd__nums{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;margin:0 40px 24px;padding-top:16px;border-top:1px solid #e6e6e5}
+.fnd__nums dt{font-size:14px;line-height:20px;font-weight:700;color:#636362}
+.fnd__nums dd{margin:4px 0 0;font-size:16px;line-height:24px}
+.fnd__nums dd span{display:block;font-size:14px;line-height:20px;color:#636362}
+.fnd .ref{margin:0 40px 40px;align-self:end}
+.ref{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:16px 20px;background:#fdf5ee;border-radius:4px;color:#000;text-decoration:none;transition:background .2s}
+.ref:hover{background:#fbe7d6}
+.ref__txt{display:grid;gap:2px}
+.ref__label{font-size:14px;line-height:20px;color:#636362}
+.ref__name{font-size:18px;line-height:24px;font-weight:700}
+.ref__go{flex:none;width:10px;height:10px;margin-right:6px;border:solid #fd5000;border-width:2.5px 2.5px 0 0;transform:rotate(45deg);transition:transform .2s cubic-bezier(.22,1,.36,1)}
+.ref:hover .ref__go{transform:translateX(3px) rotate(45deg)}
+.b-acc summary i{border-radius:4px}
+.why-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));grid-template-rows:repeat(5,auto);column-gap:24px;row-gap:0}
+.why-col{display:grid;grid-row:span 5;grid-template-rows:subgrid}
+@media (max-width:900px){
+.fnd{grid-template-columns:1fr;grid-template-rows:none;row-gap:24px}.fnd__card{grid-row:auto;grid-template-rows:none}.fnd__head{padding:24px 20px 0}.fnd__fit{margin:16px 20px 0}.fnd__nums{margin:0 20px 24px;grid-template-columns:1fr}.fnd .ref{margin:0 20px 24px}
+.b-split,.b-faq,.b-proof,.b-lightform,.b-footer__top{grid-template-columns:1fr;gap:32px}
+.b-grid--3,.b-people,.b-stats--3,.b-form,.why-grid{grid-template-columns:1fr}
+}
+
+/* ---- hi-fi ---- */
+.hf img{filter:saturate(.9) contrast(1.05)}
+.hf-sec{padding:128px 80px}
+.hf-h2{margin:0;font:700 56px/60px var(--font-head);letter-spacing:-.025em;text-wrap:balance}
+.hf-lead{margin:20px 0 0;max-width:62ch;font:400 20px/30px var(--font-sans);color:var(--ink-2)}
+.hf-eyebrow{margin:0 0 16px;font:700 13px/20px var(--font-head);letter-spacing:.12em;text-transform:uppercase;color:var(--ink-2)}
+.hf-hero{position:relative;min-height:820px;display:grid;align-content:end;color:#fff;overflow:hidden;background:#111}
+.hf-hero>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.hf-hero::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.2) 0%,rgba(0,0,0,0) 28%,rgba(0,0,0,.78) 100%),linear-gradient(90deg,rgba(0,0,0,.72) 0%,rgba(0,0,0,.35) 45%,rgba(0,0,0,0) 70%)}
+.hf-hero__text{position:relative;z-index:1;padding:0 80px 160px;max-width:1100px}
+.hf-hero .hf-eyebrow{color:#fff;opacity:.85}
+.hf-hero h1{margin:0;font:700 112px/108px var(--font-head);letter-spacing:-.04em}
+.hf-hero h1 span{display:block;color:var(--accent)}
+.hf-hero p.lead{margin:32px 0 0;max-width:46ch;font:400 22px/32px var(--font-sans);color:#e8e8e7}
+.hf-hero .acts{display:flex;flex-wrap:wrap;align-items:center;gap:16px 32px;margin-top:40px}
+.hf-hero .acts .b-link{color:#fff}
+.hf-hero__note{position:absolute;z-index:1;right:80px;top:24px;font-size:12px;line-height:16px;color:rgba(255,255,255,.6)}
+.hf-tasks{position:relative;z-index:2;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));margin:-72px 80px 0;background:#fff;box-shadow:0 24px 48px -24px rgba(0,0,0,.35)}
+.hf-task{display:grid;grid-template-columns:28px 1fr 12px;gap:16px;align-items:center;padding:28px;text-decoration:none;color:var(--ink)}
+.hf-task+.hf-task{border-left:1px solid var(--surface)}
+.hf-task .b-ico{width:24px;height:24px;color:var(--ink)}
+.hf-task b{display:block;font:700 18px/24px var(--font-head)}
+.hf-task small{display:block;font-size:14px;line-height:20px;color:var(--ink-2)}
+.hf-task::after{content:"";width:8px;height:8px;border:solid var(--ink);border-width:2px 2px 0 0;transform:rotate(45deg)}
+.hf-task:hover b{text-decoration:underline;text-underline-offset:4px}
+.hf-ind{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:24px;margin-top:64px}
+.hf-indcard{display:grid;grid-template-rows:auto auto auto 1fr auto;gap:12px;text-decoration:none;color:var(--ink)}
+.hf-indcard .ph{position:relative;aspect-ratio:3/4;overflow:hidden;margin-bottom:12px}
+.hf-indcard .ph img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.hf-oldico{width:64px;height:64px;margin:-4px 0 0 -6px;filter:none!important}
+.hf-indcard h3{margin:0;font:700 24px/30px var(--font-head);letter-spacing:-.01em}
+.hf-indcard p{margin:0;font-size:16px;line-height:24px;color:var(--ink-2)}
+.hf-indcard .b-link{align-self:end;justify-self:start;font-size:16px}
+.hf-indcard:hover h3{text-decoration:underline;text-underline-offset:5px;text-decoration-thickness:2px}
+.hf-ico{width:44px;height:44px;fill:none;stroke:var(--ink);stroke-width:1.75;stroke-linecap:round;stroke-linejoin:round}
+.hf-ico .a{stroke:var(--accent)}
+.hf-indfoot{display:flex;gap:16px 40px;margin-top:48px;padding-top:24px;border-top:1px solid var(--line)}
+.hf-band{position:relative;min-height:640px;display:grid;align-content:end;overflow:hidden;color:#fff}
+.hf-band>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.hf-band::after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(0,0,0,.82) 0%,rgba(0,0,0,.35) 50%,rgba(0,0,0,0) 75%),linear-gradient(90deg,rgba(0,0,0,.5) 0%,rgba(0,0,0,0) 60%)}
+.hf-band__text{position:relative;z-index:1;padding:0 80px 72px;max-width:900px}
+.hf-band .hf-eyebrow{color:#fff;opacity:.85}
+.hf-band h2{margin:0;font:700 48px/54px var(--font-head);letter-spacing:-.02em}
+.hf-band .b-link{margin-top:24px;color:#fff;display:inline-block}
+.hf-why{background:#000;color:#fff}
+.hf-why .hf-h2{color:#fff}
+.hf-why .hf-lead{color:var(--on-dark)}
+.hf-nums{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:48px;margin-top:80px}
+.hf-num b{display:block;font:700 144px/1 var(--font-head);letter-spacing:-.05em;color:var(--accent);font-variant-numeric:lining-nums tabular-nums}
+.hf-num small{display:block;margin-top:16px;padding-bottom:28px;border-bottom:1px solid var(--on-dark-line);font:500 18px/26px var(--font-sans);color:var(--on-dark)}
+.hf-num small em{font-style:normal;font-weight:700;color:#fff;margin-right:6px}
+.hf-num h3{margin:28px 0 8px;font:700 24px/32px var(--font-head)}
+.hf-num p{margin:0;font-size:16px;line-height:24px;color:var(--on-dark)}
+.hf-certs{display:flex;flex-wrap:wrap;gap:12px 32px;margin-top:80px;padding-top:24px;border-top:1px solid var(--on-dark-line);font:700 14px/20px var(--font-sans)}
+.hf-certs span:first-child{color:var(--on-dark-muted);letter-spacing:.1em;text-transform:uppercase}
+.hf-cards{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px;margin-top:56px}
+.hf-card{display:grid;gap:12px;align-content:start;text-decoration:none;color:var(--ink)}
+.hf-card .ph{position:relative;aspect-ratio:4/3;overflow:hidden;margin-bottom:8px}
+.hf-card .ph img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.hf-card .meta{margin:0;font-size:14px;line-height:20px;color:var(--ink-2)}
+.hf-card h3{margin:0;font:700 24px/30px var(--font-head);letter-spacing:-.01em}
+.hf-card p{margin:0;font-size:16px;line-height:24px;color:var(--ink-2)}
+.hf-card:hover h3{text-decoration:underline;text-underline-offset:5px;text-decoration-thickness:2px}
+.hf-headrow{display:flex;justify-content:space-between;align-items:end;gap:32px}
+.hf-edge{display:grid;grid-template-columns:1fr 1fr;min-height:640px}
+.hf-edge .ph{position:relative;overflow:hidden}
+.hf-edge .ph img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.hf-edge .tx{display:grid;align-content:center;gap:0;padding:96px 80px}
+.hf-edge--tint .tx{background:var(--tint)}
+.hf-edge .acts{display:flex;flex-wrap:wrap;gap:16px 32px;margin-top:40px;align-items:center}
+.hf-edge blockquote{margin:48px 0 0;padding-top:28px;border-top:1px solid var(--line);font:700 22px/32px var(--font-head)}
+.hf-edge cite{display:block;margin-top:8px;font:400 16px/24px var(--font-sans);color:var(--ink-2)}
+.hf-news{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px;margin-top:56px}
+.hf-news a{display:grid;grid-template-rows:auto auto 1fr auto;gap:12px;text-decoration:none;color:var(--ink)}
+.hf-news .ph{position:relative;aspect-ratio:16/10;overflow:hidden;margin-bottom:8px}
+.hf-news .ph img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.hf-news time{font-size:14px;line-height:20px;color:var(--ink-2)}
+.hf-news h3{margin:0;font:700 22px/30px var(--font-head)}
+.hf-news .b-link{align-self:end;justify-self:start}
+.hf-news a:hover h3{text-decoration:underline;text-underline-offset:4px}
+.hf-letter{display:grid;grid-template-columns:5fr 7fr;gap:48px;align-items:center;margin-top:72px;padding:40px;background:#fff}
+.hf-letter h3{margin:0;font:700 26px/32px var(--font-head)}
+.hf-letter p{margin:6px 0 0;color:var(--ink-2)}
+.hf-letter form{display:flex;gap:8px}.hf-letter .b-input{flex:1}
+.hf-steps{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:20px;margin-top:64px;position:relative}
+.hf-step{display:grid;grid-template-rows:auto auto auto 1fr auto;gap:10px;text-decoration:none;color:var(--ink)}
+.hf-step .no{display:flex;align-items:center;gap:16px;font:700 56px/1 var(--font-head);letter-spacing:-.03em;color:var(--accent);font-variant-numeric:lining-nums tabular-nums}
+.hf-step .no::after{content:"";flex:1;height:1px;background:var(--line)}
+.hf-step:last-child .no::after{background:transparent}
+.hf-step .ph{position:relative;aspect-ratio:3/4;overflow:hidden;margin:6px 0 10px}
+.hf-step .ph img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.hf-step h3{margin:0;font:700 22px/28px var(--font-head)}
+.hf-step p{margin:0;font-size:15px;line-height:22px;color:var(--ink-2)}
+.hf-step .b-link{align-self:end;justify-self:start;font-size:15px}
+.hf-step:hover h3{text-decoration:underline;text-underline-offset:4px}
+.hf-herostats{position:relative;z-index:1;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));margin:0 80px;border-top:1px solid rgba(255,255,255,.35)}
+.hf-herostats div{padding:28px 0 40px}
+.hf-herostats b{display:block;font:700 72px/1 var(--font-head);letter-spacing:-.04em;color:var(--accent)}
+.hf-herostats small{display:block;margin-top:10px;font:500 16px/24px var(--font-sans);color:#e8e8e7}
+.hf-herostats small em{font-style:normal;font-weight:700;color:#fff;margin-right:6px}
+.hf-usp{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:48px;margin-top:64px}
+.hf-usp div{padding-top:28px;border-top:1px solid var(--on-dark-line)}
+.hf-usp h3{margin:0 0 12px;font:700 28px/34px var(--font-head);letter-spacing:-.01em;color:#fff}
+.hf-usp p{margin:0;font-size:17px;line-height:26px;color:var(--on-dark)}
+@media (max-width:900px){
+.hf-sec{padding:72px 20px}.hf-h2{font-size:34px;line-height:40px}
+.hf-hero{min-height:640px}.hf-hero__text{padding:0 20px 120px}.hf-hero h1{font-size:52px;line-height:50px}
+.hf-tasks{grid-template-columns:1fr;margin:-48px 20px 0}.hf-task+.hf-task{border-left:0;border-top:1px solid var(--surface)}
+.hf-ind,.hf-nums,.hf-cards,.hf-news,.hf-letter,.hf-edge,.hf-steps,.hf-usp,.hf-herostats{grid-template-columns:1fr}
+.hf-ind{grid-template-columns:1fr 1fr}
+.hf-num b{font-size:88px}.hf-edge .tx{padding:56px 20px}.hf-band__text{padding:0 20px 48px}.hf-band h2{font-size:30px;line-height:36px}
+.hf-herostats{margin:0 20px}.hf-herostats b{font-size:48px}
+}
+
+/* ---- audit-korjaukset ---- */
+.hf-skip{position:absolute;left:16px;top:-80px;z-index:100;padding:12px 16px;background:var(--ink);color:#fff;font:700 16px/24px var(--font-sans);text-decoration:none}
+.hf-skip:focus{top:16px;color:#fff}
+.hf :focus-visible{outline:3px solid var(--accent);outline-offset:3px}
+.hf .b-btn:focus-visible{outline:3px solid var(--ink);outline-offset:2px;box-shadow:0 0 0 2px #fff}
+.hf .b-footer h2.hf-fh{margin:0 0 12px;font-size:14px;line-height:20px;font-weight:700;color:var(--on-dark-muted)}
+.hf .sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.hf h3 .b-gap,.hf .b-person__name .b-gap{font-size:.75em;font-weight:500}
+.hf .b-step::before{font-size:48px;line-height:1;letter-spacing:-.03em}
+.hf-hero::after{background:linear-gradient(0deg,rgba(0,0,0,.65) 0%,rgba(0,0,0,0) 55%),linear-gradient(90deg,rgba(0,0,0,.74) 0%,rgba(0,0,0,.66) 46%,rgba(0,0,0,.15) 80%,rgba(0,0,0,0) 100%)}
+.hf-hero .lead,.hf-hero--page .b-lead{max-width:40ch}
+.hf-menu{display:none;align-items:center;gap:8px;min-height:44px;padding:0 12px;border:1px solid var(--line);border-radius:4px;background:#fff;font:700 15px/20px var(--font-sans);color:var(--ink)}
+.hf-menu i{display:block;width:18px;height:2px;background:currentColor;box-shadow:0 6px 0 currentColor,0 -6px 0 currentColor}
+.hf .hf-hero h1,.hf .hf-hero--page h1{hyphens:auto;overflow-wrap:anywhere}
+@media (max-width:1200px){.hf-ind,.hf-steps{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media (max-width:900px){
+.hf .b-nav__menu,.hf .b-nav__util{display:none}.hf-menu{display:inline-flex;margin-left:auto}
+.hf .hf-hero h1,.hf .hf-hero--page h1{font-size:clamp(34px,9vw,52px);line-height:1.08}
+.hf-ind,.hf-steps{grid-template-columns:1fr 1fr}
+}
+
+/* ---- audit-kierros-3 ---- */
+.hf .hf-hero h1,.hf .hf-hero--page h1{hyphens:manual;overflow-wrap:normal}
+.hf-hero--page h1,.hf-hero--page .b-h1{max-width:20ch}
+.hf-hero--page .b-lead{font:400 20px/30px var(--font-sans);max-width:44ch}
+.hf-hero--tv h1{font-size:clamp(34px,5vw,64px)!important;line-height:1.06!important;max-width:16ch}
+.hf-hero>img{object-position:var(--pos,center)}
+.b-nav__menu.is-open{display:grid!important;position:absolute;left:0;right:0;top:100%;z-index:50;gap:0;padding:8px 20px 24px;background:#fff;box-shadow:0 24px 32px -24px rgba(0,0,0,.4)}
+.b-nav__menu.is-open .b-nav__item{padding:16px 0;border-bottom:1px solid var(--surface);font-size:18px}
+.hf .b-nav__bar{position:relative}
+@media (max-width:900px){
+.hf-hero::after{background:linear-gradient(0deg,rgba(0,0,0,.8) 0%,rgba(0,0,0,.72) 55%,rgba(0,0,0,.35) 100%)}
+.hf-hero>img{object-position:70% 20%}
+}
+@media (max-width:600px){.hf .hf-hero h1,.hf .hf-hero--page h1{overflow-wrap:anywhere}}
+
+/* ---- audit-kierros-4 ---- */
+.hf-steps>*{min-width:0}
+.hf .hf-step .b-link{white-space:normal}
+
+@media (max-width:600px){.hf-ind>:last-child:nth-child(odd){grid-column:1/-1}}
+.hf .b-link{white-space:nowrap}
+.hf-indfoot{flex-wrap:wrap}
+.b-nav__menu .hf-langs{display:none}
+.b-nav__menu.is-open .hf-langs{display:flex;gap:20px;align-items:center;padding:20px 0 4px;font-size:15px}
+.b-nav__menu.is-open .hf-langs a{min-height:44px;display:inline-flex;align-items:center;text-decoration:none;color:var(--ink)}
+.b-nav__menu.is-open .hf-langs a[aria-current]{font-weight:700;text-decoration:underline;text-underline-offset:4px}
+.b-nav__menu.is-open .hf-langs .grk{margin-left:auto;color:var(--ink-2)}
+body.menu-open{overflow:hidden}
+@media (max-width:600px){
+.hf-headrow{flex-direction:column;align-items:flex-start;gap:16px}
+.hf-hero--tv .hf-hero__text{padding-top:56px}
+.hf-herostats{grid-template-columns:repeat(3,minmax(0,1fr))!important;margin:0 20px;gap:12px}
+.hf-herostats div{padding:20px 0 28px}
+.hf-herostats b{font-size:34px}
+.hf-herostats small{font-size:13px;line-height:18px}
+.hf-steps{grid-template-columns:1fr!important}
+.hf-step .ph{aspect-ratio:16/9}
+.hf .b-media:not(:has(img)){aspect-ratio:16/9;min-height:0}
+}
+</style>
+
+<div class="b-root hf" style="width: 100%;">
+<a class="hf-skip" href="#sisalto">Siirry sisältöön</a>
+
+<header class="b-nav">
+  <div class="b-nav__util"><a href="https://grk.fi">A GRK Company</a><a href="#" data-proto-missing aria-current="true">FI</a><a href="#" data-proto-missing>EN</a><a href="#" data-proto-missing>SV</a></div>
+  <div class="b-nav__bar">
+    <img fetchpriority="high" class="b-nav__logo" src="img/ksbr-logo.svg" alt="KSBR – A GRK Company">
+    <nav class="b-nav__menu" id="paavalikko" aria-label="Päävalikko">
+      <a class="b-nav__item b-nav__item--menu" href="index.html#toimialat" aria-current="page">Toimialat</a>
+      <a class="b-nav__item" href="referenssit.html">Referenssit</a>
+      <a class="b-nav__item b-nav__item--menu" href="#" data-proto-missing>Tietopankki</a>
+      <a class="b-nav__item b-nav__item--menu" href="ura.html">Ura</a>
+      <a class="b-nav__item b-nav__item--menu" href="index.html">KSBR</a>
+      <a class="b-nav__item b-nav__item--menu" href="yhteystiedot.html">Yhteystiedot</a>
+      <div class="hf-langs"><a href="#" data-proto-missing aria-current="page" lang="fi">FI</a><a href="#" data-proto-missing hreflang="en" lang="en">EN</a><a href="#" data-proto-missing hreflang="sv" lang="sv">SV</a><a class="grk" href="https://grk.fi">A GRK Company</a></div>
+    </nav>
+    <button class="hf-menu" type="button" aria-expanded="false" aria-controls="paavalikko"><i aria-hidden="true"></i>Valikko</button>
+    <a class="b-nav__search" href="index.html" aria-label="Haku"><svg class="b-ico" viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="m20 20-4-4"></path></svg></a>
+  </div>
+</header>
+<ol class="b-crumbs"><li><a href="index.html">Etusivu</a></li><li><a href="index.html#toimialat">Toimialat</a></li><li><a href="tuulivoima.html">Energia</a></li><li aria-current="page">Tuulivoima</li></ol>
+<main id="sisalto">
+
+<section class="hf-hero hf-hero--tv" style="min-height: 860px;">
+  <img src="img/ksbr-tuulivoima-1.jpg" alt="Valmis tuulivoimalan perustus ja ankkurirengas">
+  <div class="hf-hero__text" style="padding-bottom: 56px;">
+    <p class="hf-eyebrow">Energia · Tuulivoima</p>
+    <h1>Tuulipuiston rakentaminen ja voimaloiden perustukset</h1>
+    <p class="lead">Rakennamme tuulipuiston kaiken muun kuin turbiinit: tiet, nostoalueet, perustukset, kaapeloinnit ja sähköaseman.</p>
+    <div class="acts"><a class="b-btn" href="#yhteyshenkilot">Ota yhteyttä</a><a class="b-link" href="#toimitusketju">Näin hanke etenee</a></div>
+  </div>
+  <div class="hf-herostats"><div><b>38</b><small>tuulipuistoa rakennettu</small></div><div><b>500</b><small>voimalan perustusta</small></div><div><b>2 000</b><small><em>MW</em>tuulivoimaa rakennettu</small></div></div>
+</section>
+
+<section class="hf-sec" id="toimitusketju">
+  <div class="hf-headrow"><div><h2 class="hf-h2">Tuulipuisto valmiiksi yhdeltä toteuttajalta</h2><p class="hf-lead">Hoidamme koko rakentamisen hankekehityksestä verkkoliityntään: yksi sopimus ja yksi aikataulu.</p></div></div>
+  <div class="hf-steps"><a class="hf-step" href="suunnitteluyhteistyo.html"><span class="no">01</span><div class="ph"><img loading="lazy" decoding="async" src="img/KSBR_Lestijarvi_alakuva.jpg" alt=""></div><h3>Suunnittelu</h3><p>Mukana jo hankekehityksessä.</p><span class="b-link b-link--sm">Suunnitteluyhteistyö</span></a><a class="hf-step" href="#" data-proto-missing><span class="no">02</span><div class="ph"><img loading="lazy" decoding="async" src="img/ksbr-pahkakoski-kuva1.jpg" alt=""></div><h3>Tiet ja nostoalueet</h3><p>Huoltotiet, asennuskentät ja nosturien nostoalueet.</p><span class="b-link b-link--sm">Infra</span></a><a class="hf-step" href="betonirakentaminen.html"><span class="no">03</span><div class="ph"><img loading="lazy" decoding="async" src="img/MoksyKorotusvaluMSY10.jpg" alt=""></div><h3>Perustukset</h3><p>Perustus jokaiselle voimalalle maaperän mukaan.</p><span class="b-link b-link--sm">Betonirakentaminen</span></a><a class="hf-step" href="#" data-proto-missing><span class="no">04</span><div class="ph"><img loading="lazy" decoding="async" src="img/KSBR_Lestijarvi_paakuva.jpg" alt=""></div><h3>Kaapeloinnit</h3><p>Puiston sisäinen sähköverkko (33 kV).</p><span class="b-link b-link--sm">Sähköasemat ja verkot</span></a><a class="hf-step" href="#" data-proto-missing><span class="no">05</span><div class="ph"><img loading="lazy" decoding="async" src="img/lestijarvi2.jpg" alt=""></div><h3>Sähköasema</h3><p>Sähköasema ja liityntä kantaverkkoon avaimet käteen.</p><span class="b-link b-link--sm">Sähköasemat ja verkot</span></a></div>
+</section>
+
+<section class="hf-sec hf-why">
+  <h2 class="hf-h2">Yhdet puheet riittää</h2>
+  <div class="hf-usp">
+    <div><h3>Teemme sen, mitä lupaamme</h3><p>Tuulivoimaa Suomessa ja Ruotsissa. Sovittu aikataulu ja laajuus pitävät, ilman yllätyksiä.</p></div>
+    <div><h3>Oma työvoima</h3><p>Omat timpurit, raudoittajat ja työnjohto, joten laatu ja aikataulu pysyvät omissa käsissä.</p></div>
+    <div><h3>Osa GRK-konsernia</h3><p>Vakavarainen konserni, jossa on koko infran osaaminen saman katon alla.</p></div>
+  </div>
+  <div class="hf-certs"><span>Sertifioitu</span><span>ISO 9001</span><span>ISO 14001</span><span>ISO 45001</span></div>
+</section>
+
+<section class="b-section"><div class="b-inner b-split" style="align-items: center;">
+  <div class="b-media"><img loading="lazy" decoding="async" src="img/ksbr-yhteys.jpg" alt="KSBR:n työnjohto keskustelee työmaalla"></div>
+  <div>
+    <h2 class="b-h2" style="margin-bottom: 24px;">Mukaan jo ennen kuin ratkaisut lukitaan</h2>
+    <p class="b-lead">Kun olemme mukana suunnittelussa, rakenteet ja aikataulu optimoidaan ennen investointipäätöstä. Haastamme suunnitelman, jos fiksumpi menetelmä säästää aikaa tai rahaa.</p>
+    <p class="b-body" style="margin-top: 16px;"><mark class="b-gap">[Täydennä: esimerkki hankkeesta, jossa varhainen mukaantulo säästi aikaa tai rahaa]</mark></p>
+    <p style="margin-top: 24px;"><a class="b-link" href="suunnitteluyhteistyo.html">Suunnitteluyhteistyö</a></p>
+  </div>
+</div></section>
+
+<section class="b-section b-section--gray"><div class="b-inner">
+  <div class="b-head"><h2 class="b-h2">Tuulivoimalan perustus: gravitaatio vai kallioankkuroitu?</h2><p class="b-body">Perustustyypin ratkaisee maaperä. Rakennamme molempia.</p></div>
+  <div class="fnd">
+    <article class="fnd__card">
+      <div class="fnd__img"><img loading="lazy" decoding="async" src="img/perustus-gravitaatio.svg" alt="Leikkauskuva: laaja betonilaatta maan sisällä, kallio syvällä."></div>
+      <div class="fnd__head"><p class="fnd__tag">Paino</p><h3>Gravitaatioperustus</h3><p>Laaja ja raskas betonilaatta pitää voimalan pystyssä omalla painollaan.</p></div>
+      <p class="fnd__fit"><b>Sopii, kun</b>Kallio on syvällä tai rikkonainen.</p>
+      <dl class="fnd__nums"><div><dt>Betonia</dt><dd><mark class="b-gap">[Täydennä]</mark> <span>m³ / voimala</span></dd></div><div><dt>Raudoitusta</dt><dd><mark class="b-gap">[Täydennä]</mark> <span>t / voimala</span></dd></div><div><dt>Valmis perustus</dt><dd><mark class="b-gap">[Täydennä]</mark> <span>vrk / voimala</span></dd></div></dl>
+      <a class="ref" href="referenssi-lestijarvi.html"><span class="ref__txt"><span class="ref__label">Referenssi · 69 voimalaa, perustustyyppi <mark class="b-gap">[Täydennä]</mark></span><span class="ref__name">Lestijärven tuulipuisto</span></span><span class="ref__go" aria-hidden="true"></span></a>
+    </article>
+    <article class="fnd__card">
+      <div class="fnd__img"><img loading="lazy" decoding="async" src="img/perustus-kallio.svg" alt="Leikkauskuva: pienempi laatta ankkuroitu teräsankkureilla ehjään kallioon."></div>
+      <div class="fnd__head"><p class="fnd__tag">Ankkurit</p><h3>Kallioankkuroitu perustus</h3><p>Pienempi laatta kiinnitetään ankkureilla kallioon.</p></div>
+      <p class="fnd__fit"><b>Sopii, kun</b>Ehjä kallio on lähellä pintaa.</p>
+      <dl class="fnd__nums"><div><dt>Betonia</dt><dd><mark class="b-gap">[Täydennä]</mark> <span>m³ / voimala</span></dd></div><div><dt>Raudoitusta</dt><dd><mark class="b-gap">[Täydennä]</mark> <span>t / voimala</span></dd></div><div><dt>Valmis perustus</dt><dd><mark class="b-gap">[Täydennä]</mark> <span>vrk / voimala</span></dd></div></dl>
+      <a class="ref" href="referenssi-lestijarvi.html"><span class="ref__txt"><span class="ref__label">Referenssi · 9 voimalaa, 2015</span><span class="ref__name">Saarenkylän tuulipuisto</span></span><span class="ref__go" aria-hidden="true"></span></a>
+    </article>
+  </div>
+</div></section>
+
+<section class="b-section"><div class="b-inner">
+  <div class="b-head"><h2 class="b-h2">Toteutettuja tuulipuistoja</h2></div>
+  <a class="b-case b-case--lead" href="referenssi-lestijarvi.html"><div class="b-media"><img loading="lazy" decoding="async" src="img/Hittisenneva.jpg" alt="Lestijärven tuulipuiston Hittisennevan sähköasema"></div>
+    <div class="b-case__body"><p class="b-case__meta">Lestijärvi · Suomi · <mark class="b-gap">[Täydennä: vuosi]</mark></p><h3>Lestijärven tuulipuisto, 69 voimalaa</h3>
+      <dl class="b-qa"><div><dt>Haaste</dt><dd><mark class="b-gap">[Täydennä]</mark></dd></div><div><dt>Ratkaisu</dt><dd><mark class="b-gap">[Täydennä]</mark></dd></div><div><dt>Lopputulos</dt><dd><mark class="b-gap">[Täydennä: MW ja valmistuminen]</mark></dd></div></dl>
+      <span class="b-link">Lestijärven tuulipuisto</span></div></a>
+  <div class="b-grid b-grid--3" style="margin-top: 24px;">
+    <a class="b-case" href="referenssi-lestijarvi.html"><div class="b-media b-media--wide"><span>Kuva: Rajamäenkylän tuulipuisto</span></div><div class="b-case__body"><p class="b-case__meta"><mark class="b-gap">[Täydennä: paikkakunta · vuosi]</mark></p><h3>Rajamäenkylän tuulipuisto</h3><span class="b-link b-link--sm">Rajamäenkylän tuulipuisto</span></div></a>
+    <a class="b-case" href="referenssi-lestijarvi.html"><div class="b-media b-media--wide"><span>Kuva: Korkeamaan tuulipuisto</span></div><div class="b-case__body"><p class="b-case__meta"><mark class="b-gap">[Täydennä: paikkakunta · vuosi]</mark></p><h3>Korkeamaan tuulipuisto</h3><span class="b-link b-link--sm">Korkeamaan tuulipuisto</span></div></a>
+    <a class="b-case" href="referenssi-lestijarvi.html"><div class="b-media b-media--wide"><span>Kuva: Piipsan tuulipuisto</span></div><div class="b-case__body"><p class="b-case__meta"><mark class="b-gap">[Täydennä: paikkakunta · vuosi]</mark></p><h3>Piipsan tuulipuisto</h3><span class="b-link b-link--sm">Piipsan tuulipuisto</span></div></a>
+  </div>
+  <p style="margin-top: 32px;"><a class="b-link" href="referenssit.html">Kaikki energiakohteet</a></p>
+</div></section>
+
+<section class="b-section b-section--gray"><div class="b-inner b-faq">
+  <div class="b-head" style="margin: 0;"><h2 class="b-h2">Usein kysyttyä tuulipuiston rakentamisesta</h2></div>
+  <div>
+    <details class="b-acc" open="open"><summary><span>Kuinka paljon betonia tuulivoimalan perustukseen tarvitaan?</span><i></i></summary><div class="b-acc__body">Määrä riippuu perustustyypistä. Betonin ja raudoituksen määrät on vertailtu yllä olevassa taulukossa.</div></details>
+    <details class="b-acc"><summary><span>Mitä balance of plant (BoP) -urakka sisältää?</span><i></i></summary><div class="b-acc__body">BoP tarkoittaa tuulipuiston kaikkea muuta rakentamista kuin turbiineja: tiet, nostoalueet, perustukset, kaapeloinnit ja sähköaseman.</div></details>
+    <details class="b-acc"><summary><span>Kuinka aikaisin urakoitsija kannattaa ottaa mukaan?</span><i></i></summary><div class="b-acc__body"><mark class="b-gap">[Täydennä]</mark></div></details>
+    <details class="b-acc"><summary><span>Rakennatteko tuulipuistoja Ruotsissa?</span><i></i></summary><div class="b-acc__body">Kyllä. Ruotsin hankkeista vastaa KSBR Sverige AB. <mark class="b-gap">[Täydennä: esimerkkikohde]</mark></div></details>
+  </div>
+</div></section>
+
+<section class="b-section" id="yhteyshenkilot"><div class="b-inner">
+  <div class="b-head"><h2 class="b-h2">Yhteyshenkilöt</h2><p class="b-body">Soita suoraan tuulivoimasta vastaavalle.</p></div>
+  <div class="b-people">
+    <div class="b-person"><div class="b-person__img" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="8.5" r="3.5"></circle><path d="M5 20a7 7 0 0 1 14 0"></path></svg></div><div><p class="b-person__name">Janne Kananen</p><p class="b-person__role">Toimialajohtaja, energia ja infra</p><p class="b-person__ch"><a href="tel:+358406318181"><svg class="b-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 3h4l2 5-2.5 1.5a11 11 0 0 0 6 6L16 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 5a2 2 0 0 1 2-2"></path></svg>+358 40 631 8181</a><a href="mailto:janne.kananen@ksbr.fi"><svg class="b-ico" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"></rect><path d="m3 7 9 6 9-6"></path></svg>janne.kananen@ksbr.fi</a></p></div></div>
+    <div class="b-person"><div class="b-person__img" aria-hidden="true"><img loading="lazy" decoding="async" src="img/Andreas-Olson-autokuva-vaaka.jpg" alt=""></div><div><p class="b-person__name">Andreas Olson</p><p class="b-person__role">Myyntipäällikkö, KSBR Sverige AB (Ruotsi)</p><p class="b-person__ch"><a href="tel:+46702425689"><svg class="b-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 3h4l2 5-2.5 1.5a11 11 0 0 0 6 6L16 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 5a2 2 0 0 1 2-2"></path></svg>+46 70 242 5689</a><a href="mailto:andreas.olson@ksbr.fi"><svg class="b-ico" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"></rect><path d="m3 7 9 6 9-6"></path></svg>andreas.olson@ksbr.fi</a></p></div></div>
+    <div class="b-person"><div class="b-person__img" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="8.5" r="3.5"></circle><path d="M5 20a7 7 0 0 1 14 0"></path></svg></div><div><p class="b-person__name"><mark class="b-gap">[Täydennä: nimi]</mark></p><p class="b-person__role">Projektipäällikkö, tuulivoima</p><p class="b-person__ch"><a href="#" data-proto-missing><svg class="b-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 3h4l2 5-2.5 1.5a11 11 0 0 0 6 6L16 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 5a2 2 0 0 1 2-2"></path></svg>[Täydennä]</a><a href="#" data-proto-missing><svg class="b-ico" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"></rect><path d="m3 7 9 6 9-6"></path></svg>[Täydennä]</a></p></div></div>
+  </div>
+  <p style="margin-top: 32px;"><a class="b-link" href="yhteyshenkilot.html">Kaikki energian yhteyshenkilöt</a></p>
+  <div class="b-lightform">
+    <div class="b-head" style="margin: 0; align-content: start;"><h3 class="b-h3">Kerro hankkeestasi</h3><p class="b-body">Viesti menee tuulivoimatiimille.</p></div>
+    <form class="b-form">
+      <div class="b-field"><label for="tv-nimi">Nimi *</label><input class="b-input" id="tv-nimi" type="text"></div>
+      <div class="b-field"><label for="tv-email">Sähköposti *</label><input class="b-input" id="tv-email" type="email"></div>
+      <div class="b-field b-field--full"><label for="tv-viesti">Viesti *</label><textarea class="b-textarea" id="tv-viesti" placeholder="Hankkeen sijainti, aikataulu ja vaihe"></textarea></div>
+      <div class="b-form__foot"><button class="b-btn" type="button">Lähetä</button><span class="b-small">Vastaamme <mark class="b-gap">[Päätä: vastausaika]</mark>.</span></div>
+    </form>
+  </div>
+</div></section>
+
+</main>
+<section class="b-section b-section--tight"><div class="b-inner"><div class="b-strip"><div><h2>Haluatko rakentaa Suomen vaativimpia kohteita?</h2><p>Meillä et pääse helpolla, mutta pääset eteenpäin.</p></div><a class="b-btn" href="ura.html">Avoimet työpaikat</a></div></div></section>
+
+<footer class="b-footer"><div class="b-footer__top">
+  <div><img loading="lazy" decoding="async" class="b-footer__logo" src="img/ksbr-logo.svg" alt="KSBR – A GRK Company"><address class="b-footer__addr">Keski-Suomen Betonirakenne Oy<br>Asematie 5, 44800 Pihtipudas<br>Vaihde <mark class="b-gap">[Täydennä]</mark><br><a href="mailto:info@ksbr.fi" style="color: #ffffff;">info@ksbr.fi</a><br>Y-tunnus 1875126-7</address></div>
+  <div><h2 class="hf-fh">Toimialat</h2><ul><li><a href="tuulivoima.html" style="color: #ffffff;">Energia</a></li><li><a href="teollisuus.html" style="color: #ffffff;">Teollisuus</a></li><li><a href="#" data-proto-missing style="color: #ffffff;">Datakeskukset</a></li><li><a href="betonirakentaminen.html" style="color: #ffffff;">Betonirakentaminen</a></li><li><a href="#" data-proto-missing style="color: #ffffff;">Infra</a></li><li><a href="#" data-proto-missing style="color: #ffffff;">Pysäköinti ja toimitilat</a></li></ul></div>
+  <div><h2 class="hf-fh">KSBR</h2><ul><li><a href="meista.html" style="color: #ffffff;">Meistä</a></li><li><a href="referenssit.html" style="color: #ffffff;">Referenssit</a></li><li><a href="#" data-proto-missing style="color: #ffffff;">Tietopankki</a></li><li><a href="ura.html" style="color: #ffffff;">Ura</a></li></ul></div>
+  <div><h2 class="hf-fh">Yhteystiedot</h2><ul><li><a href="yhteystiedot.html" style="color: #ffffff;">Yhteystiedot</a></li><li><a href="yhteyshenkilot.html" style="color: #ffffff;">Yhteyshenkilöt</a></li><li><a href="yhteystiedot.html" style="color: #ffffff;">Laskutustiedot</a></li></ul></div>
+  <div><h2 class="hf-fh">Uutiskirje</h2><p style="font-size: 16px; line-height: 24px;">Uudet kohteet ja artikkelit kerran kuussa.</p><form class="b-footer__news"><input class="b-input" type="email" placeholder="Sähköposti" aria-label="Sähköposti"><button class="b-btn" type="button">Tilaa</button></form></div>
+</div><div class="b-footer__bottom"><span>© 2026 Keski-Suomen Betonirakenne Oy · A GRK Company</span><nav><a href="#" data-proto-missing style="color: #b5b5b4;">Tietosuoja</a><a href="#" data-proto-missing style="color: #b5b5b4;">Evästeet</a><a href="#" data-proto-missing style="color: #b5b5b4;">Ilmoituskanava</a><a href="#" data-proto-missing style="color: #b5b5b4;">LinkedIn</a></nav></div></footer>
+
+<script>(function(){var b=document.querySelector('.hf-menu'),m=document.getElementById('paavalikko');if(!b||!m)return;function set(o){b.setAttribute('aria-expanded',String(o));m.classList.toggle('is-open',o);document.body.classList.toggle('menu-open',o);var mn=document.querySelector('main'),ft=document.querySelector('footer');if(mn)mn.inert=o;if(ft)ft.inert=o;if(o){var f=m.querySelector('a');f&&f.focus()}else b.focus()}b.onclick=function(e){e.stopPropagation();set(b.getAttribute('aria-expanded')!=='true')};document.addEventListener('keydown',function(e){if(e.key==='Escape'&&m.classList.contains('is-open'))set(false)});document.addEventListener('click',function(e){if(m.classList.contains('is-open')&&!m.contains(e.target))set(false)})})();</script>
+</div>
+
+
+
+<style>
+.pt-bar{position:fixed;left:16px;bottom:16px;z-index:9999;font:500 13px/1.2 Ubuntu,system-ui,sans-serif}
+.pt-bar>button{display:flex;align-items:center;gap:8px;padding:10px 14px;border:0;border-radius:999px;background:#1d1d1b;color:#fff;cursor:pointer;box-shadow:0 4px 16px rgba(0,0,0,.18);font:inherit}
+.pt-bar>button:focus-visible{outline:3px solid #fd5000;outline-offset:2px}
+.pt-bar ul{display:none;position:absolute;left:0;bottom:48px;margin:0;padding:8px;list-style:none;min-width:240px;background:#fff;border:1px solid #e6e6e5;border-radius:8px;box-shadow:0 8px 32px rgba(0,0,0,.14)}
+.pt-bar.open ul{display:block}
+.pt-bar li a{display:block;padding:8px 12px;border-radius:4px;color:#1d1d1b;text-decoration:none}
+.pt-bar li a:hover,.pt-bar li a[aria-current]{background:#fdf5ee;color:#000}
+.pt-toast{position:fixed;left:50%;bottom:24px;transform:translate(-50%,16px);opacity:0;z-index:9999;padding:12px 18px;border-radius:8px;background:#1d1d1b;color:#fff;font:500 14px/1.3 Ubuntu,system-ui,sans-serif;transition:opacity .2s,transform .3s cubic-bezier(.22,1,.36,1);pointer-events:none}
+.pt-toast.on{opacity:1;transform:translate(-50%,0)}
+@media print{.pt-bar,.pt-toast{display:none}}
+</style>
+<nav class="pt-bar" aria-label="Prototyypin sivut"><button type="button" aria-expanded="false">☰ Prototyypin sivut</button><ul><li><a href="index.html">Etusivu</a></li><li><a href="tuulivoima.html" aria-current=page>Tuulivoima</a></li><li><a href="teollisuus.html">Teollisuus</a></li><li><a href="betonirakentaminen.html">Betonirakentaminen</a></li><li><a href="referenssit.html">Referenssit</a></li><li><a href="referenssi-lestijarvi.html">Referenssi: Lestijärvi</a></li><li><a href="suunnitteluyhteistyo.html">Suunnitteluyhteistyö</a></li><li><a href="toteutusmallit.html">Toteutusmallit</a></li><li><a href="laatu.html">Laatu ja turvallisuus</a></li><li><a href="meista.html">Meistä</a></li><li><a href="ura.html">Ura</a></li><li><a href="yhteystiedot.html">Yhteystiedot</a></li><li><a href="yhteyshenkilot.html">Yhteyshenkilöt</a></li><li><a href="tarjouspyynto.html">Tarjouspyyntö</a></li></ul></nav>
+<div class="pt-toast" role="status" aria-live="polite"></div>
+<script>
+(()=>{const bar=document.querySelector('.pt-bar'),btn=bar.querySelector('button'),toast=document.querySelector('.pt-toast');let t;
+btn.addEventListener('click',()=>{const o=bar.classList.toggle('open');btn.setAttribute('aria-expanded',o)});
+document.addEventListener('click',e=>{if(!bar.contains(e.target)){bar.classList.remove('open');btn.setAttribute('aria-expanded','false')}
+const a=e.target.closest('a[data-proto-missing]');if(a){e.preventDefault();toast.textContent='Tämä sivu ei ole mukana prototyypissä';toast.classList.add('on');clearTimeout(t);t=setTimeout(()=>toast.classList.remove('on'),2200)}});
+document.addEventListener('submit',e=>{e.preventDefault();toast.textContent='Prototyyppi: lomaketta ei lähetetä';toast.classList.add('on');clearTimeout(t);t=setTimeout(()=>toast.classList.remove('on'),2200)});
+document.addEventListener('keydown',e=>{if(e.key==='Escape'){bar.classList.remove('open');btn.setAttribute('aria-expanded','false')}});})();
+</script>
+</body>
+</html>
