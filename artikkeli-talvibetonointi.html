@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="noindex, nofollow">
-<title>Teollisuus · KSBR (prototyyppi)</title>
+<title>Artikkeli: Talvibetonointi · KSBR (prototyyppi)</title>
 
 <link rel="stylesheet" href="css/tokens.css">
 <link rel="stylesheet" href="css/bundle.css">
@@ -16,12 +16,45 @@
 <style>
 body{margin:0;background:#fff}
 a{color:#000000}a:hover{color:#fd5000}
+.certs{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:24px}
+.cert-head{display:flex;align-items:center;gap:16px}
+.seal{flex:none;width:72px;height:72px;border-radius:4px;background:#e6e6e5;display:grid;place-items:center;box-shadow:inset 0 0 0 1px #c8c8c7}
+.seal span{font-size:12px;line-height:16px;font-weight:500;color:#636362}
+.cert{display:grid;grid-template-rows:auto auto 1fr auto;gap:12px;padding:32px 28px;background:#fff;border:1px solid #c8c8c7;border-radius:4px}
+.cert-code{margin:0;font-size:32px;line-height:36px;font-weight:700;letter-spacing:-.01em;font-variant-numeric:lining-nums tabular-nums}
+.cert-name{margin:0;font-size:16px;line-height:24px;font-weight:700;color:#636362;padding-bottom:16px;border-bottom:1px solid #e6e6e5}
+.cert p.what{margin:0;font-size:16px;line-height:24px}
+.cert .b-link{font-size:15px;margin-top:8px}
+.qa-head{display:grid;grid-template-columns:7fr 5fr;gap:80px;align-items:end;margin-bottom:48px}
+.qa-head .b-head{margin:0}
+.quote{margin:64px 0 0;padding-top:48px;border-top:1px solid #c8c8c7;display:grid;grid-template-columns:4fr 8fr;gap:80px;align-items:start}
+.quote blockquote{margin:0;font-size:32px;line-height:42px;font-weight:500;text-wrap:balance}
+.quote blockquote::before{content:"”";display:block;font-size:80px;line-height:56px;font-weight:700;color:#fd5000}
+.quote figcaption{font-size:16px;line-height:24px;padding-top:56px}
+.quote figcaption b{display:block}
+.co2{margin:0;justify-self:end;width:100%;max-width:420px}
+.co2-bars{display:grid;grid-template-columns:1fr 1fr;gap:32px;align-items:end}
+.co2-col{display:grid;justify-items:center;align-content:end;gap:8px}
+.co2-bar{width:100%;max-width:120px;border-radius:4px 4px 0 0;background:#3a3a3a;box-shadow:0 1px 0 #7a7a79}
+.co2-bar--now{background:#fd5000}
+.co2-val{font-size:24px;line-height:32px;font-weight:700;color:#d0d0cf}
+.co2-val--now{color:#fd5000}
+.co2-lbl{margin-top:4px;font-size:14px;line-height:20px;color:#d0d0cf;text-align:center}
+.co2 figcaption{margin-top:20px;font-size:14px;line-height:20px;color:#b5b5b4}
+.resp{background:#000;color:#fff}
+.resp-grid{display:grid;grid-template-columns:7fr 5fr;gap:80px;align-items:end}
+.resp h2{margin:0;font-size:52px;line-height:60px;font-weight:700;letter-spacing:-.015em;color:#fff;text-wrap:balance}
+.resp h2 em{font-style:normal;color:#fd5000}
+.resp p{margin:16px 0 0;font-size:18px;line-height:28px;color:#d0d0cf}
+.resp .b-link{color:#fff}
+.resp .b-link:hover{color:#fff}
 .b-footer__top{grid-template-columns:3fr 2fr 2fr 2fr 3fr}
-.b-acc summary i{border-radius:4px}
 @media (max-width:900px){
-.b-split,.b-compare,.b-faq,.b-proof,.b-lightform,.b-footer__top{grid-template-columns:1fr;gap:32px}
-.b-grid--3,.b-people,.b-stats--3,.b-form,.b-why__grid,.b-who{grid-template-columns:1fr}
-.b-compare .b-media--portrait{aspect-ratio:4/3}
+.b-h2,.resp h2{font-size:26px;line-height:32px}
+.certs{grid-template-columns:repeat(2,minmax(0,1fr))}
+.b-check,.b-people,.b-form{grid-template-columns:1fr}
+.qa-head,.quote,.resp-grid,.b-lightform,.b-footer__top{grid-template-columns:1fr;gap:24px}
+.quote figcaption{padding-top:0}
 }
 
 /* ---- hi-fi ---- */
@@ -204,9 +237,6 @@ a{color:#000000}a:hover{color:#fd5000}
 @media (max-width:600px){.hf .hf-hero h1,.hf .hf-hero--page h1{overflow-wrap:anywhere}}
 
 /* ---- audit-kierros-4 ---- */
-.hf-steps>*{min-width:0}
-.hf .hf-step .b-link{white-space:normal}
-
 @media (max-width:600px){.hf-ind>:last-child:nth-child(odd){grid-column:1/-1}}
 .hf .b-link{white-space:nowrap}
 .hf-indfoot{flex-wrap:wrap}
@@ -227,6 +257,59 @@ body.menu-open{overflow:hidden}
 .hf-step .ph{aspect-ratio:16/9}
 .hf .b-media:not(:has(img)){aspect-ratio:16/9;min-height:0}
 }
+
+/* ---- artikkeli ---- */
+.ar-head{max-width:1280px;margin:0 auto;padding:56px 80px 0}
+.ar-tag{display:inline-block;font:700 14px/20px var(--font-sans);letter-spacing:.08em;text-transform:uppercase;color:var(--accent);text-decoration:none}
+.ar-tag:hover{text-decoration:underline}
+.ar-head h1{max-width:20ch;margin:16px 0 0;font:700 64px/68px var(--font-head);letter-spacing:-.02em;hyphens:manual}
+.ar-lead{max-width:44ch;margin:24px 0 0;font:400 24px/36px var(--font-sans);color:var(--ink)}
+.ar-meta{display:flex;flex-wrap:wrap;gap:8px 28px;margin:32px 0 0;padding:20px 0 0;border-top:1px solid var(--line);font:500 15px/22px var(--font-sans);color:var(--ink-2)}
+.ar-meta b{color:var(--ink);font-weight:700}
+.ar-hero{max-width:1280px;margin:40px auto 0;padding:0 80px}
+.ar-hero figure{margin:0}
+.ar-hero img{display:block;width:100%;aspect-ratio:16/8;object-fit:cover;object-position:50% 45%}
+.ar-hero figcaption,.ar-fig figcaption{margin-top:10px;font:400 14px/20px var(--font-sans);color:var(--ink-2)}
+.ar-grid{display:grid;grid-template-columns:minmax(0,720px) minmax(0,360px);justify-content:space-between;gap:64px;max-width:1280px;margin:0 auto;padding:56px 80px 96px}
+.ar-sum{padding:28px 32px;background:var(--tint);border-radius:4px}
+.hf .ar-sum h2,.ar-sum h2{margin:0;font:700 14px/20px var(--font-sans);letter-spacing:.08em;text-transform:uppercase}
+.ar-sum p{margin:10px 0 0;font:400 19px/30px var(--font-sans)}
+.ar-body h2{margin:56px 0 0;font:700 36px/42px var(--font-head);letter-spacing:-.01em}
+.ar-body p{margin:18px 0 0;font:400 19px/31px var(--font-sans)}
+.ar-body ul{margin:18px 0 0;padding-left:22px;font:400 19px/31px var(--font-sans)}
+.ar-body li+li{margin-top:6px}
+.ar-fig{margin:40px 0 0}
+.ar-fig img{display:block;width:100%;aspect-ratio:3/2;object-fit:cover}
+.ar-big{display:grid;grid-template-columns:auto 1fr;gap:12px 32px;align-items:end;margin:48px 0 8px;padding:32px 0;border-top:2px solid #000;border-bottom:1px solid var(--line)}
+.ar-big b{font:700 112px/.9 var(--font-head);letter-spacing:-.04em;color:var(--accent)}
+.ar-big b small{font-size:48px;letter-spacing:0}
+.ar-big p{margin:0;font:500 20px/30px var(--font-sans)}
+.ar-big p span{display:block;margin-top:8px;font:400 15px/22px var(--font-sans);color:var(--ink-2)}
+.ar-side{display:grid;gap:40px;align-content:start;position:sticky;top:24px}
+.ar-facts{padding:28px;border:1px solid var(--line);border-radius:4px}
+.hf .ar-facts h2,.ar-facts h2{margin:0 0 4px;font:700 20px/26px var(--font-head)}
+.ar-facts dl{margin:0}
+.ar-facts div{padding:16px 0;border-top:1px solid var(--line)}
+.ar-facts div:first-child{border-top:0}
+.ar-facts dt{font:700 36px/1 var(--font-head);letter-spacing:-.02em;color:var(--accent)}
+.ar-facts dt small{font-size:20px}
+.ar-facts dd{margin:6px 0 0;font:400 15px/22px var(--font-sans)}
+.hf .ar-rel h2,.ar-rel h2{margin:0;padding-bottom:12px;border-bottom:2px solid #000;font:700 14px/20px var(--font-sans);letter-spacing:.08em;text-transform:uppercase}
+.ar-rel a{display:flex;justify-content:space-between;gap:16px;padding:16px 0;border-bottom:1px solid var(--line);color:var(--ink);text-decoration:none;font:700 17px/24px var(--font-sans)}
+.ar-rel a span{display:block;font:400 14px/20px var(--font-sans);color:var(--ink-2)}
+.ar-rel a::after{content:"›";font-size:24px;line-height:24px;color:var(--accent)}
+.ar-rel a:hover{color:var(--accent)}
+.ar-share{display:flex;gap:16px;font:500 15px/22px var(--font-sans);color:var(--ink-2)}
+.ar-share a{color:var(--ink)}
+.ar-more{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:32px;margin-top:40px}
+.ar-more a{display:grid;gap:12px;align-content:start;color:var(--ink);text-decoration:none}
+.ar-more img{display:block;width:100%;aspect-ratio:3/2;object-fit:cover}
+.ar-more small{font:700 13px/18px var(--font-sans);letter-spacing:.06em;text-transform:uppercase;color:var(--accent)}
+.ar-more h3{margin:0;font:700 22px/28px var(--font-head)}
+.ar-more p{margin:0;font:400 16px/24px var(--font-sans);color:var(--ink-2)}
+.ar-more a:hover h3{color:var(--accent)}
+@media (max-width:1200px){.ar-grid{grid-template-columns:1fr;gap:48px}.ar-side{position:static}}
+@media (max-width:900px){.ar-head,.ar-hero{padding-left:20px;padding-right:20px}.ar-grid{padding:40px 20px 72px}.ar-head h1{font-size:44px;line-height:48px}.ar-lead{font-size:20px;line-height:30px}.ar-more{grid-template-columns:1fr}.ar-big b{font-size:80px}}
 </style>
 
 <div class="b-root hf" style="width: 100%;">
@@ -237,9 +320,9 @@ body.menu-open{overflow:hidden}
   <div class="b-nav__bar">
     <img fetchpriority="high" class="b-nav__logo" src="img/ksbr-logo.svg" alt="KSBR – A GRK Company">
     <nav class="b-nav__menu" id="paavalikko" aria-label="Päävalikko">
-      <a class="b-nav__item b-nav__item--menu" href="index.html#toimialat" aria-current="page">Toimialat</a>
+      <a class="b-nav__item b-nav__item--menu" href="index.html#toimialat">Toimialat</a>
       <a class="b-nav__item" href="referenssit.html">Referenssit</a>
-      <a class="b-nav__item b-nav__item--menu" href="artikkeli-talvibetonointi.html">Tietopankki</a>
+      <a class="b-nav__item b-nav__item--menu" href="artikkeli-talvibetonointi.html" aria-current="page">Tietopankki</a>
       <a class="b-nav__item b-nav__item--menu" href="ura.html">Ura</a>
       <a class="b-nav__item b-nav__item--menu" href="index.html">KSBR</a>
       <a class="b-nav__item b-nav__item--menu" href="yhteystiedot.html">Yhteystiedot</a>
@@ -249,99 +332,98 @@ body.menu-open{overflow:hidden}
     <a class="b-nav__search" href="index.html" aria-label="Haku"><svg class="b-ico" viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="m20 20-4-4"></path></svg></a>
   </div>
 </header>
-<ol class="b-crumbs"><li><a href="index.html">Etusivu</a></li><li><a href="index.html#toimialat">Toimialat</a></li><li aria-current="page">Teollisuus</li></ol>
+<ol class="b-crumbs"><li><a href="index.html">Etusivu</a></li><li><a href="artikkeli-talvibetonointi.html">Tietopankki</a></li><li aria-current="page">Talvibetonointi</li></ol>
 <main id="sisalto">
 
-<section class="hf-hero hf-hero--page">
-  <img src="img/ksbr-kemin-btt-teollisuus-1.jpg" alt="Teollisuuskohde rakenteilla Kemissä">
-  <div class="hf-hero__text">
-    <h1 class="b-h1">Teollisuus­rakentaminen pääurakoitsijana, tuotannon ehdoilla</h1>
-    <p class="b-lead">Rakennamme teollisuuden vaativat betonirakenteet ja laajennukset käyvän tuotannon keskellä, turvallisesti ja sovitussa aikataulussa. Suomessa ja Ruotsissa.</p>
-    <div class="b-btns"><a class="b-btn" href="#yhteyshenkilot">Ota yhteyttä</a></div>
+<article>
+<header class="ar-head">
+  <a class="ar-tag" href="betonirakentaminen.html">Betonirakentaminen ja paikallavalu</a>
+  <h1>Talvirakentamisessa pidetään pää kylmänä ja betoni lämpimänä</h1>
+  <p class="ar-lead">Betonia kannattaa valaa kesällä, mutta hankkeen aikataulu ei odota kevättä. Näin KSBR valaa pakkasella niin, että rakenne saavuttaa lujuutensa ja kalusto kestää.</p>
+  <p class="ar-meta"><span>Haastateltavat <b>Matti Laaksonen</b>, vastaava työnjohtaja, ja <b>Harri Kytökangas</b>, toimialajohtaja, teollisuus</span><span>26.5.2025</span><span>Lukuaika 5 min</span></p>
+</header>
+<div class="ar-hero"><figure><img fetchpriority="high" src="img/DSC_0031-1600x1000.jpg" alt="KSBR:n työntekijät viimeistelevät paikallavalettua betoniseinää henkilönostimelta talvella"><figcaption>Paikallavalettu seinä talvityömaalla. Kuva: KSBR</figcaption></figure></div>
+
+<div class="ar-grid">
+  <div class="ar-body">
+    <section class="ar-sum" aria-labelledby="ar-lyhyesti"><h2 id="ar-lyhyesti">Lyhyesti</h2>
+      <p>Betonia voi valaa pakkasella, kun massa on lähtiessään lämmin ja rakenne suojataan, kunnes se kestää jäätymisen. Pumppukalusto on rajoillaan noin −15 asteessa ja betoniasema noin −20 asteessa. Jäätymisen rakenne kestää, kun puristuslujuus on vähintään 5 MPa. Jälkihoito kestää talvella vähintään viikon ja usein pidempään.</p>
+    </section>
+
+    <h2>Miksi betonia valetaan pakkasella</h2>
+    <p>Lämmin kausi on betonille helpoin ja yleensä edullisin. Teollisuus- ja energiahankkeiden aikataulut sidotaan kuitenkin tuotannon käynnistykseen ja verkkoliityntään, eivät vuodenaikaan. Siksi KSBR suunnittelee työjärjestyksen niin, että pakkasvaluja jää mahdollisimman vähän.</p>
+    <ul>
+      <li>Suuret perustustyöt ajoitetaan keväälle.</li>
+      <li>Runko asennetaan syksyllä, jotta runko ja kuori ovat valmiit ennen talvea.</li>
+      <li>Kun rakennus on suojassa, sen sisätilat lämmitetään ja valut jatkuvat sisällä.</li>
+    </ul>
+
+    <h2>Lämmin massa ja tarkka seuranta</h2>
+    <p>Betoni alkaa sitoutua normaalisti noin neljän tunnin kuluttua. Mitä kylmempää massa on, sitä hitaammin sitoutuminen alkaa. Tavoitteena on massa, jonka lämpötila ei laske selvästi alle 20 asteen ensimmäisten tuntien aikana.</p>
+    <p>Ennen valua betonitoimittajalta tilataan lämpösimulaatio talviolosuhteisiin. Sen perusteella sovitaan, millaista massan pitää olla pumppauksen alkaessa. Valun aikana lämpöä seurataan, ja höyrykattilan tehoa lisätään tarvittaessa.</p>
+    <figure class="ar-fig"><img loading="lazy" decoding="async" src="img/DSC_0105-800x533.jpg" alt="Kaksi KSBR:n työnjohtajaa tarkastelee piirustuksia maanpaineseinien välissä"><figcaption>Kaustisen maanpaineseinät valettiin marras–helmikuussa. Kuva: KSBR</figcaption></figure>
+
+    <h2>Kaustinen: massiivinen rakenne lämmittää itse itseään</h2>
+    <p>Sibanye-Stillwaterin litiumhankkeessa Kaustisella KSBR rakensi Keliberin rikastamon ja vesilaitoksen rakenteet sekä murskainten perustukset. Kiireisin vaihe osui marraskuusta helmikuun alkuun. Työmaalla oli oma höyrytyskalusto.</p>
+    <p>Maanpaineseinien massa lähti 22–25 asteisena, eikä se jäähtynyt alle 18 asteen ennen kuin lujuus ja lämmönkehitys olivat käynnissä.</p>
+    <div class="ar-big"><b>58<small> °C</small></b><p>Betonin lämpötila maanpaineseinän sisällä, kun ulkona oli noin −15 astetta.<span>Massiivinen rakenne tuottaa kovettuessaan niin paljon lämpöä, että suojausta tarvitaan vähemmän kuin ohuissa rakenteissa.</span></p></div>
+    <p>Ohuet rakenteet ovat toisin: ne jäähtyvät nopeasti ja tarvitsevat suojauksen ja lämmityksen. Jätevedenpuhdistamon altaan seiniä KSBR lämmitti lämmönvaihdinjärjestelmällä, joka kierrätti lämpöä jänneputkien kautta.</p>
+
+    <h2>Milloin rakenne kestää jäätymisen</h2>
+    <p>Kaksi lukua ratkaisee. Kun puristuslujuus on 5 MPa, rakenne kestää jäätymisen, mutta sulanut rakenne ei vielä pysy koossa omalla lujuudellaan. Kun lujuudesta on saavutettu noin 60 prosenttia ennen jäätymistä, rakenne jatkaa lujittumista sulamisen jälkeen.</p>
+
+    <h2>Jälkihoito kestää talvella pidempään</h2>
+    <p>Jälkihoitoa jatketaan, kunnes betoni on saavuttanut 60–80 prosenttia suunnittelulujuudesta, ja aina vähintään viikon. Pakkasella valettu 30 senttimetrin pohjalaatta voi tarvita suojausta parisen viikkoa, joskus kevääseen asti.</p>
+    <p>Talvella on myös hyvät puolensa: betoniasemilla on väljempää, ja palvelu on usein parempaa kuin kesän ruuhkassa.</p>
+
+    <section style="margin-top:64px" aria-labelledby="ar-ukk"><h2 id="ar-ukk">Usein kysyttyä talvibetonoinnista</h2><div style="margin-top:24px">
+      <details class="b-acc" open="open"><summary><span>Voiko betonia valaa pakkasella?</span><i></i></summary><div class="b-acc__body">Voi. Massan pitää olla lähtiessään lämmin ja rakenne pitää suojata ja tarvittaessa lämmittää, kunnes puristuslujuus on vähintään 5 MPa.</div></details>
+      <details class="b-acc"><summary><span>Mikä on pakkasraja betonin pumppaukselle?</span><i></i></summary><div class="b-acc__body">Pumppukalusto on tyypillisesti rajoillaan noin −15 asteessa. Betoniaseman toiminta vaikeutuu noin −20 asteessa.</div></details>
+      <details class="b-acc"><summary><span>Kauanko jälkihoito kestää talvella?</span><i></i></summary><div class="b-acc__body">Kunnes betoni on saavuttanut 60–80 % suunnittelulujuudesta, ja vähintään viikon. Ohuet laatat voivat vaatia suojausta viikkoja.</div></details>
+    </div></section>
   </div>
-</section>
+
+  <aside class="ar-side" aria-label="Artikkelin tiedot">
+    <section class="ar-facts" aria-labelledby="ar-rajat"><h2 id="ar-rajat">Talvivalun rajat</h2>
+      <dl>
+        <div><dt>−15<small> °C</small></dt><dd>Pumppukaluston tyypillinen raja</dd></div>
+        <div><dt>−20<small> °C</small></dt><dd>Betoniaseman toiminta vaikeutuu</dd></div>
+        <div><dt>5<small> MPa</small></dt><dd>Puristuslujuus, jolla rakenne kestää jäätymisen</dd></div>
+        <div><dt>60<small> %</small></dt><dd>Lujuudesta ennen jäätymistä, jotta lujittuminen jatkuu sulamisen jälkeen</dd></div>
+        <div><dt>7<small> vrk</small></dt><dd>Jälkihoidon vähimmäiskesto</dd></div>
+      </dl>
+    </section>
+    <nav class="ar-rel" aria-label="Tähän liittyy"><h2>Tähän liittyy</h2>
+      <a href="betonirakentaminen.html"><span>Betonirakentaminen ja paikallavalu<span>Palvelu</span></span></a>
+      <a href="teollisuus.html"><span>Teollisuusrakentaminen<span>Palvelu</span></span></a>
+      <a href="#" data-proto-missing><span>Keliber, Kaustinen<span>Referenssi</span></span></a>
+    </nav>
+    <p class="ar-share">Jaa: <a href="#" data-proto-missing>LinkedIn</a><a href="#" data-proto-missing>Kopioi linkki</a></p>
+  </aside>
+</div>
+</article>
 
 <section class="b-section b-section--gray"><div class="b-inner">
-  <div class="b-head"><h2 class="b-h2">Kenelle rakennamme</h2></div>
-  <div class="b-who">
-    <div class="b-who__col"><div class="b-media b-who__img"><img loading="lazy" decoding="async" src="img/Dentsu_MetsaFibre_ilmakuva.jpg" alt="Metsä Fibren tehdasalue ilmasta"></div><h3>Prosessiteollisuus ja puunjalostus</h3><p>Tehtaiden laajennukset, säiliöt ja puhdistamot.</p></div>
-    <div class="b-who__col"><div class="b-media b-who__img"><span>Kuva: rikastamon prosessirakennus</span></div><h3>Kaivokset ja akkumateriaalit</h3><p>Rikastamot, prosessirakennukset ja raskaat perustukset.</p></div>
-    <div class="b-who__col"><div class="b-media b-who__img"><span>Kuva: voimalaitoksen perustus</span></div><h3>Energiantuotanto</h3><p>Voimalaitosten perustukset ja rakennukset.</p></div>
-    <div class="b-who__col"><div class="b-media b-who__img"><img loading="lazy" decoding="async" src="img/Kemi.jpg" alt="Uusi tuotantolaitos Kemissä"></div><h3>Vety ja vihreä siirtymä</h3><p>Uudet tuotantolaitokset Suomessa ja Ruotsissa.</p></div>
-  </div>
-  <p class="b-who__limit">Emme tee pieniä yksityisiä rakennustöitä.</p>
-</div></section>
-
-<section class="b-section"><div class="b-inner">
-  <div class="b-head"><h2 class="b-h2">Mitä teemme teollisuuskohteessa</h2><p class="b-body">Raskaat betonirakenteet perustuksista valmiiseen runkoon, yhdellä sopimuksella.</p></div>
-  <div class="hf-steps"><a class="hf-step" href="#" data-proto-missing><span class="no">01</span><div class="ph"><img loading="lazy" decoding="async" src="img/Lestijarvi20220502_175415.jpg" alt="Maanrakennustyömaa ja porauskalusto"></div><h3>Maanrakennus ja perustukset</h3><p>Kaivut, paalutukset ja anturat tontille.</p><span class="b-link b-link--sm">Infra</span></a><a class="hf-step" href="betonirakentaminen.html"><span class="no">02</span><div class="ph"><img loading="lazy" decoding="async" src="img/MoksyKorotusvaluMSY10.jpg" alt="Raudoitettu perustus valun alla"></div><h3>Koneperustukset</h3><p>Raskaat, värähtelyä kestävät perustukset prosessilaitteille.</p><span class="b-link b-link--sm">Betonirakentaminen ja paikallavalu</span></a><a class="hf-step" href="betonirakentaminen.html"><span class="no">03</span><div class="ph"><img loading="lazy" decoding="async" src="img/Neste1-1.jpg" alt="Nesteen jätevesialtaat ilmasta"></div><h3>Siilot, säiliöt ja puhdistamot</h3><p>Liukuvalut ja jännitetyt säiliöt.</p><span class="b-link b-link--sm">Liukuvalu ja säiliöt</span></a><a class="hf-step" href="betonirakentaminen.html"><span class="no">04</span><div class="ph"><img loading="lazy" decoding="async" src="img/ksbr-kk-rakentaminen-1.jpg" alt="Paikallavalumuotit rungon työmaalla"></div><h3>Teollisuusrakennukset ja runko</h3><p>Paikallavalu- ja elementtirungot prosessin ympärille.</p><span class="b-link b-link--sm">Rungot ja paikallavalu</span></a><a class="hf-step" href="#" data-proto-missing><span class="no">05</span><div class="ph"><img loading="lazy" decoding="async" src="img/Hittisenneva.jpg" alt="Sähköasema"></div><h3>Sähköasema</h3><p>Tehtaan sähköasema ja liitynnät.</p><span class="b-link b-link--sm">Sähköasemat ja verkot</span></a></div>
-</div></section>
-
-<section class="b-section b-why"><div class="b-inner">
-  <div class="b-head" style="margin-bottom: 64px;"><h2 class="b-h2" style="color: #ffffff;">Tehdas pyörii, kun me rakennamme</h2></div>
-  <div class="b-why__grid">
-    <div class="b-why__col">
-      <h3 class="b-why__title">Oma työvoima</h3>
-      <p class="b-why__text">Omat timpurit, raudoittajat ja työnjohto, joten aikataulu ei riipu aliurakkaketjusta.</p>
-    </div>
-    <div class="b-why__col">
-      <h3 class="b-why__title">Turvallisesti tehdasalueella</h3>
-      <p class="b-why__text">ISO 9001, 14001 ja 45001 sekä RALA-pätevyys teollisuusrakentamisen pääurakointiin.</p>
-    </div>
-    <div class="b-why__col">
-      <h3 class="b-why__title">Osa GRK-konsernia</h3>
-      <p class="b-why__text">Vakavarainen kumppani, joka kantaa myös suurimmat tehdasinvestoinnit loppuun.</p>
-    </div>
-  </div>
-</div></section>
-
-<section class="b-section b-section--gray"><div class="b-inner">
-  <div class="b-head"><h2 class="b-h2">Rakentaminen käyvän tuotannon keskellä</h2><p class="b-body">Tuotantohäiriö maksaa enemmän kuin mikään rakennusvaihe. Siksi työ suunnitellaan tuotannon ehdoilla.</p></div>
-  <ul class="b-check">
-    <li><div><b>Seisokit suunnitellaan yhdessä tuotannon kanssa</b><p>Kriittiset työvaiheet ajoitetaan huoltoseisokkeihin, ei tuotannon kustannuksella.</p></div></li>
-    <li><div><b>Perehdytys tehdasalueen sääntöihin</b><p>Jokainen tekijä tuntee tilaajan turvallisuussäännöt ennen kuin astuu alueelle.</p></div></li>
-    <li><div><b>Työmaa erotettu tuotannosta</b><p>Kulkureitit, nostot ja logistiikka suunnitellaan niin, etteivät ne risteä prosessin kanssa. <mark class="b-gap">[Täydennä]</mark></p></div></li>
-    <li><div><b>Poikkeamat raportoidaan heti</b><p>Tilaaja tietää tilanteen joka päivä, eikä ongelmia siirretä eteenpäin.</p></div></li>
-  </ul>
-</div></section>
-
-<section class="b-section"><div class="b-inner">
-  <div class="b-head"><h2 class="b-h2">Toteutettuja teollisuushankkeita</h2></div>
-  <a class="b-case b-case--lead" href="referenssi-lestijarvi.html"><div class="b-media"><span>Kuva: Stegra, Boden (kuvateema: kohde ja mittakaava)</span></div>
-    <div class="b-case__body"><p class="b-case__meta">Boden · Ruotsi · <mark class="b-gap">[Täydennä: vuosi]</mark></p><h3>Stegra, Boden</h3>
-      <dl class="b-qa"><div><dt>Haaste</dt><dd><mark class="b-gap">[Täydennä]</mark></dd></div><div><dt>Ratkaisu</dt><dd><mark class="b-gap">[Täydennä]</mark></dd></div><div><dt>Lopputulos</dt><dd><mark class="b-gap">[Täydennä]</mark></dd></div></dl>
-      <span class="b-link">Stegra, Boden</span></div></a>
-  <div class="b-grid b-grid--3" style="margin-top: 24px;">
-    <a class="b-case" href="referenssi-lestijarvi.html"><div class="b-media b-media--wide"><img loading="lazy" decoding="async" src="img/Jamsankoski.jpg" alt="UPM Jämsänkoski"></div><div class="b-case__body"><p class="b-case__meta">Jämsänkoski · Suomi</p><h3>UPM Jämsänkoski</h3><p class="b-small">Jännitetyt säiliöt</p><span class="b-link b-link--sm">UPM Jämsänkoski</span></div></a>
-    <a class="b-case" href="referenssi-lestijarvi.html"><div class="b-media b-media--wide"><img loading="lazy" decoding="async" src="img/Sibanye-Stillwaterin-Keliber-litiumhanke-kuva.jpg" alt="Keliberin litiumhanke ilmasta"></div><div class="b-case__body"><p class="b-case__meta">Suomi</p><h3>Keliber</h3><p class="b-small">Litiumkemikaalitehdas <mark class="b-gap">[Täydennä]</mark></p><span class="b-link b-link--sm">Keliber</span></div></a>
-    <a class="b-case" href="referenssi-lestijarvi.html"><div class="b-media b-media--wide"><img loading="lazy" decoding="async" src="img/ksbr-storaenso-jatevesialtaiden-seinat-kuva2.jpg" alt="Stora Enson jätevesialtaat"></div><div class="b-case__body"><p class="b-case__meta">Suomi</p><h3>Stora Enso</h3><p class="b-small">Liukuvalu</p><span class="b-link b-link--sm">Stora Enso</span></div></a>
-  </div>
-  <p style="margin-top: 32px;"><a class="b-link" href="referenssit.html">Kaikki teollisuuskohteet</a></p>
-</div></section>
-
-<section class="b-section b-section--gray"><div class="b-inner b-faq">
-  <div class="b-head" style="margin: 0;"><h2 class="b-h2">Usein kysyttyä teollisuusrakentamisesta</h2></div>
-  <div>
-    <details class="b-acc" open="open"><summary><span>Voiko laajennuksen rakentaa tuotannon käydessä?</span><i></i></summary><div class="b-acc__body">Kyllä. Työvaiheet suunnitellaan tuotannon kanssa niin, että kriittiset työt osuvat seisokkeihin. <mark class="b-gap">[Täydennä]</mark></div></details>
-    <details class="b-acc"><summary><span>Toimitteko pääurakoitsijana vai osaurakoitsijana?</span><i></i></summary><div class="b-acc__body">Molempina. Meillä on RALA-pätevyys teollisuusrakentamisen pääurakointiin. <mark class="b-gap">[Täydennä]</mark></div></details>
-    <details class="b-acc"><summary><span>Rakennatteko teollisuuskohteita Ruotsissa?</span><i></i></summary><div class="b-acc__body">Kyllä, esimerkiksi Stegran tehtaalla Bodenissa. Ruotsin hankkeista vastaa KSBR Sverige AB.</div></details>
+  <div class="b-headrow" style="display:flex;justify-content:space-between;align-items:end;gap:24px"><h2 class="b-h2" style="margin:0">Lisää betonirakentamisesta</h2><a class="b-link" href="artikkeli-talvibetonointi.html">Koko tietopankki</a></div>
+  <div class="ar-more">
+    <a href="#" data-proto-missing><img loading="lazy" decoding="async" src="img/perustus-kallio.svg" alt=""><small>Tuulivoima</small><h3>Tuulivoimalan perustus: gravitaatio vai kallioankkuroitu?</h3><p>Maaperä ratkaisee perustustyypin ja betonin määrän.</p></a>
+    <a href="#" data-proto-missing><img loading="lazy" decoding="async" src="img/ksbr-storaenso-jatevesialtaiden-seinat-kuva2.jpg" alt=""><small>Menetelmät</small><h3>Liukuvalu: siilot ja säiliöt yhtenä valuna</h3><p>Miksi liukuvalu sopii korkeisiin teollisuusrakenteisiin.</p></a>
+    <a href="#" data-proto-missing><img loading="lazy" decoding="async" src="img/Safiiri-muokattu_2019-6-17-16.jpg" alt=""><small>Pysäköinti ja toimitilat</small><h3>Parkkitalo paikallavaluna vai elementeistä?</h3><p>Kohteen koko ja kerrosmäärä ratkaisevat rakennustavan.</p></a>
   </div>
 </div></section>
 
 <section class="b-section" id="yhteyshenkilot"><div class="b-inner">
-  <div class="b-head"><h2 class="b-h2">Yhteyshenkilöt</h2><p class="b-body">Soita suoraan teollisuudesta vastaavalle.</p></div>
+  <div class="b-head"><h2 class="b-h2">Kysy talvirakentamisesta</h2><p class="b-body">Suunnitteletko valuja talveksi? Kysy suoraan asiantuntijalta, miten aikataulu ja rakenteet kannattaa sovittaa yhteen.</p></div>
   <div class="b-people">
     <div class="b-person"><div class="b-person__img" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="8.5" r="3.5"></circle><path d="M5 20a7 7 0 0 1 14 0"></path></svg></div><div><p class="b-person__name">Harri Kytökangas</p><p class="b-person__role">Toimialajohtaja, teollisuus</p><p class="b-person__ch"><a href="tel:+358505695342"><svg class="b-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 3h4l2 5-2.5 1.5a11 11 0 0 0 6 6L16 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 5a2 2 0 0 1 2-2"></path></svg>+358 50 569 5342</a><a href="mailto:harri.kytokangas@ksbr.fi"><svg class="b-ico" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"></rect><path d="m3 7 9 6 9-6"></path></svg>harri.kytokangas@ksbr.fi</a></p></div></div>
-    <div class="b-person"><div class="b-person__img" aria-hidden="true"><img loading="lazy" decoding="async" src="img/Andreas-Olson-autokuva-vaaka.jpg" alt=""></div><div><p class="b-person__name">Andreas Olson</p><p class="b-person__role">Myyntipäällikkö, KSBR Sverige AB (Ruotsi)</p><p class="b-person__ch"><a href="tel:+46702425689"><svg class="b-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 3h4l2 5-2.5 1.5a11 11 0 0 0 6 6L16 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 5a2 2 0 0 1 2-2"></path></svg>+46 70 242 5689</a><a href="mailto:andreas.olson@ksbr.fi"><svg class="b-ico" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"></rect><path d="m3 7 9 6 9-6"></path></svg>andreas.olson@ksbr.fi</a></p></div></div>
-    <div class="b-person"><div class="b-person__img" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="8.5" r="3.5"></circle><path d="M5 20a7 7 0 0 1 14 0"></path></svg></div><div><p class="b-person__name"><mark class="b-gap">[Täydennä: nimi]</mark></p><p class="b-person__role">Projektipäällikkö, teollisuus</p><p class="b-person__ch"><a href="#" data-proto-missing><svg class="b-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 3h4l2 5-2.5 1.5a11 11 0 0 0 6 6L16 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 5a2 2 0 0 1 2-2"></path></svg>[Täydennä]</a><a href="#" data-proto-missing><svg class="b-ico" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"></rect><path d="m3 7 9 6 9-6"></path></svg>[Täydennä]</a></p></div></div>
+    <div class="b-person"><div class="b-person__img" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="8.5" r="3.5"></circle><path d="M5 20a7 7 0 0 1 14 0"></path></svg></div><div><p class="b-person__name">Kasimir Kvist</p><p class="b-person__role">Toimialajohtaja, rakentaminen</p><p class="b-person__ch"><a href="tel:+358503760165"><svg class="b-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 3h4l2 5-2.5 1.5a11 11 0 0 0 6 6L16 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 5a2 2 0 0 1 2-2"></path></svg>+358 50 376 0165</a><a href="mailto:kasimir.kvist@ksbr.fi"><svg class="b-ico" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"></rect><path d="m3 7 9 6 9-6"></path></svg>kasimir.kvist@ksbr.fi</a></p></div></div>
   </div>
-  <p style="margin-top: 32px;"><a class="b-link" href="yhteyshenkilot.html">Kaikki teollisuuden yhteyshenkilöt</a></p>
   <div class="b-lightform">
-    <div class="b-head" style="margin: 0; align-content: start;"><h3 class="b-h3">Kerro hankkeestasi</h3><p class="b-body">Viesti menee teollisuustiimille.</p></div>
+    <div class="b-head" style="margin: 0; align-content: start;"><h3 class="b-h3">Lähetä kysymys</h3><p class="b-body">Kysymys menee artikkelin asiantuntijalle.</p></div>
     <form class="b-form">
-      <div class="b-field"><label for="te-nimi">Nimi *</label><input class="b-input" id="te-nimi" type="text"></div>
-      <div class="b-field"><label for="te-email">Sähköposti *</label><input class="b-input" id="te-email" type="email"></div>
-      <div class="b-field b-field--full"><label for="te-viesti">Viesti *</label><textarea class="b-textarea" id="te-viesti" placeholder="Tehdas, laajennuksen laajuus ja aikataulu"></textarea></div>
+      <div class="b-field"><label for="ar-nimi">Nimi *</label><input class="b-input" id="ar-nimi" type="text"></div>
+      <div class="b-field"><label for="ar-email">Sähköposti *</label><input class="b-input" id="ar-email" type="email"></div>
+      <div class="b-field b-field--full"><label for="ar-viesti">Viesti *</label><textarea class="b-textarea" id="ar-viesti" placeholder="Esimerkiksi hankkeen sijainti ja valujen ajankohta"></textarea></div>
       <div class="b-form__foot"><button class="b-btn" type="button">Lähetä</button><span class="b-small">Vastaamme <mark class="b-gap">[Päätä: vastausaika]</mark>.</span></div>
     </form>
   </div>
@@ -375,7 +457,7 @@ body.menu-open{overflow:hidden}
 .pt-toast.on{opacity:1;transform:translate(-50%,0)}
 @media print{.pt-bar,.pt-toast{display:none}}
 </style>
-<nav class="pt-bar" aria-label="Prototyypin sivut"><button type="button" aria-expanded="false">☰ Prototyypin sivut</button><ul><li><a href="index.html">Etusivu</a></li><li><a href="tuulivoima.html">Tuulivoima</a></li><li><a href="teollisuus.html" aria-current=page>Teollisuus</a></li><li><a href="betonirakentaminen.html">Betonirakentaminen</a></li><li><a href="referenssit.html">Referenssit</a></li><li><a href="referenssi-lestijarvi.html">Referenssi: Lestijärvi</a></li><li><a href="suunnitteluyhteistyo.html">Suunnitteluyhteistyö</a></li><li><a href="toteutusmallit.html">Toteutusmallit</a></li><li><a href="laatu.html">Laatu ja turvallisuus</a></li><li><a href="meista.html">Meistä</a></li><li><a href="ura.html">Ura</a></li><li><a href="yhteystiedot.html">Yhteystiedot</a></li><li><a href="yhteyshenkilot.html">Yhteyshenkilöt</a></li><li><a href="tarjouspyynto.html">Tarjouspyyntö</a></li><li><a href="artikkeli-talvibetonointi.html">Artikkeli: Talvibetonointi</a></li></ul></nav>
+<nav class="pt-bar" aria-label="Prototyypin sivut"><button type="button" aria-expanded="false">☰ Prototyypin sivut</button><ul><li><a href="index.html">Etusivu</a></li><li><a href="tuulivoima.html">Tuulivoima</a></li><li><a href="teollisuus.html">Teollisuus</a></li><li><a href="betonirakentaminen.html">Betonirakentaminen</a></li><li><a href="referenssit.html">Referenssit</a></li><li><a href="referenssi-lestijarvi.html">Referenssi: Lestijärvi</a></li><li><a href="suunnitteluyhteistyo.html">Suunnitteluyhteistyö</a></li><li><a href="toteutusmallit.html">Toteutusmallit</a></li><li><a href="laatu.html">Laatu ja turvallisuus</a></li><li><a href="meista.html">Meistä</a></li><li><a href="ura.html">Ura</a></li><li><a href="yhteystiedot.html">Yhteystiedot</a></li><li><a href="yhteyshenkilot.html">Yhteyshenkilöt</a></li><li><a href="tarjouspyynto.html">Tarjouspyyntö</a></li><li><a href="artikkeli-talvibetonointi.html" aria-current=page>Artikkeli: Talvibetonointi</a></li></ul></nav>
 <div class="pt-toast" role="status" aria-live="polite"></div>
 <script>
 (()=>{const bar=document.querySelector('.pt-bar'),btn=bar.querySelector('button'),toast=document.querySelector('.pt-toast');let t;
