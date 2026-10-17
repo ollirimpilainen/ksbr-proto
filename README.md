@@ -22,13 +22,13 @@ Sivusto on julkaisupeili esittelyä varten. Se ei näy hakukoneissa (`noindex` j
 | Yhteystiedot | `yhteystiedot.html` |
 | Yhteyshenkilöt | `yhteyshenkilot.html` |
 | Tarjouspyyntö | `tarjouspyynto.html` |
-| Tietopankki › Artikkeli: Talvibetonointi | `artikkeli-talvibetonointi.html` |
+| Ajankohtaista › Artikkeli: Talvibetonointi | `artikkeli-talvibetonointi.html` |
 
 ## Miten prototyyppi toimii
 
 - Sivujen välillä liikutaan päävalikon, korttien, murupolkujen ja toimintakehotteiden kautta.
 - Kaikki referenssikortit vievät samaan referenssisivupohjaan (Lestijärvi).
-- Energia-linkit vievät Tuulivoima-sivulle ja Tietopankki-linkit artikkelipohjaan (Talvibetonointi).
+- Energia-linkit vievät Tuulivoima-sivulle. Ajankohtaista-listaa ei ole protossa; artikkelipohja (Talvibetonointi) on suoraan osoitteessa `artikkeli-talvibetonointi.html`.
 - Jos sivua ei ole prototyypissä (esim. Infra, Datakeskukset tai uutiset), näytölle tulee ilmoitus "Tämä sivu ei ole mukana prototyypissä".
 - Lomakkeita ei lähetetä.
 - Vasemmassa alakulmassa olevasta "Prototyypin sivut" -valikosta pääsee suoraan mille tahansa sivulle.
