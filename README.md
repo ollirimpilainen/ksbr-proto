@@ -28,7 +28,7 @@ Sivusto on julkaisupeili esittelyä varten. Se ei näy hakukoneissa (`noindex` j
 
 - Sivujen välillä liikutaan päävalikon, korttien, murupolkujen ja toimintakehotteiden kautta.
 - Kaikki referenssikortit vievät samaan referenssisivupohjaan (Lestijärvi).
-- Energia-linkit vievät Tuulivoima-sivulle. Ajankohtaista-listaa ei ole protossa; artikkelipohja (Talvibetonointi) on suoraan osoitteessa `artikkeli-talvibetonointi.html`.
+- Energia-linkit vievät Tuulivoima-sivulle. Ajankohtaista on päävalikossa Referenssien jälkeen (21.10.), mutta listaa ei ole protossa; artikkelipohja (Talvibetonointi) on suoraan osoitteessa `artikkeli-talvibetonointi.html`.
 - Jos sivua ei ole prototyypissä (esim. Infra, Datakeskukset tai uutiset), näytölle tulee ilmoitus "Tämä sivu ei ole mukana prototyypissä".
 - Lomakkeita ei lähetetä.
 - Vasemmassa alakulmassa olevasta "Prototyypin sivut" -valikosta pääsee suoraan mille tahansa sivulle.
